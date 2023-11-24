@@ -14,18 +14,18 @@ return new class extends Migration
     {
         Schema::create('roles', function (Blueprint $table) {
             $table->id();
-            $table->string('name', 20)->unique();
+            $table->string('name')->unique();
             $table->string('identity',30)->unique();
             $table->timestamps();
         });
         DB::table('roles')->insert([
         [
-            'type' => 'Super Admin',
+            'name' => 'Super Admin',
             'identity' => 'superadmin',
             'created_at' => Carbon::now()
         ],
         [
-            'type' => 'Admin',
+            'name' => 'Admin',
             'identity' => 'admin',
             'created_at' => Carbon::now()
         ],

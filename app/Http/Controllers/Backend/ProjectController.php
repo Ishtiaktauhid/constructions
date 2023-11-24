@@ -2,8 +2,13 @@
 
 namespace App\Http\Controllers\Backend;
 
+use App\Http\Controllers\Controller;
 use App\Models\Project;
+use App\Models\Land;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
+use Exception;
+use File;
 
 class ProjectController extends Controller
 {
@@ -12,7 +17,9 @@ class ProjectController extends Controller
      */
     public function index()
     {
-        //
+       
+       $project=Project::paginate(10);
+        return view('backend.project.index',compact('project'));
     }
 
     /**
@@ -20,7 +27,8 @@ class ProjectController extends Controller
      */
     public function create()
     {
-        //
+        $land=Land::get();
+        return view('backend.project.create', compact('land'));
     }
 
     /**
@@ -28,7 +36,24 @@ class ProjectController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        try{
+            $project=new Project();
+            $project->project_name=$request->project_name;
+            $project->lands_id=$request->lands_id;
+            $project->description=$request->description;
+            $project->start_time=$request->start_time;
+            $project->end_time=$request->end_time;
+            $project->other_project_details=$request->other_project_details;
+            $project->project_value=$request->project_value;
+             
+            if($project->save())
+                return redirect()->route('project.index')->with('success','Successfully saved');
+            else 
+                return redirect()->back()->withInput()->with('error','Please try again');
+        }catch(Exception $e){
+            dd($e);
+            return redirect()->back()->withInput()->with('error','Please try again');
+        }
     }
 
     /**
@@ -42,9 +67,11 @@ class ProjectController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Project $project)
+    public function edit($id)
     {
-        //
+        $land=Land::get();
+        $project=Project::find(encryptor('decrypt',$id));
+        return view('backend.project.edit',compact('project','land'));
     }
 
     /**
@@ -52,14 +79,36 @@ class ProjectController extends Controller
      */
     public function update(Request $request, Project $project)
     {
-        //
+        try{
+            $project=Project::find(encryptor('decrypt',$id));
+            $project->project_name=$request->project_name;
+            $project->land_id=$request->land_id;
+            $project->description=$request->description;
+            $project->start_time=$request->start_time;
+            $project->end_time=$request->end_time;
+            $project->other_project_details=$request->other_project_details;
+            $project->project_value=$request->project_value;
+             
+            if($project->save())
+                return redirect()->route('project.index')->with('success','Successfully saved');
+            else 
+                return redirect()->back()->withInput()->with('error','Please try again');
+        }catch(Exception $e){
+            // dd($e);
+            return redirect()->back()->withInput()->with('error','Please try again');
+        }
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Project $project)
+    public function destroy($id)
     {
-        //
+        $project=Project::find(encryptor('decrypt',$id));
+        $image_path=public_path('uploads/users/').$project->image;
+        if($project->delete()){
+            if(File::exists($image_path)) File::delete($image_path);
+            return redirect()->back()->with('success','Successfully Deleted');
+        }
     }
 }
