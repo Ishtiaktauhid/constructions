@@ -14,8 +14,8 @@ return new class extends Migration
         Schema::create('projects', function (Blueprint $table) {
             $table->id();
             $table->string('project_name');
-            $table->unsignedBigInteger('lands_id')->index();
-            $table->foreign('lands_id')->references('id')->on('lands')->onDelete('cascade');
+            $table->unsignedBigInteger('land_id')->index();
+            $table->foreign('land_id')->references('id')->on('lands')->onDelete('cascade');
             $table->text('description')->nullable();
             $table->timestamp('start_time')->nullable();
             $table->timestamp('end_time')->nullable();
