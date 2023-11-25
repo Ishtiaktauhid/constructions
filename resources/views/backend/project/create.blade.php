@@ -14,17 +14,17 @@
                         <div class="row">
                             <div class="col-md-6 col-12">
                                 <div class="form-group">
-                                    <label for="lands_id">Land  <i class="text-danger">*</i></label>
-                                    <select class="form-control" name="lands_id" id="lands_id">
+                                    <label for="land_id">Land  <i class="text-danger">*</i></label>
+                                    <select class="form-control" name="land_id" id="land_id">
                                         <option value="">Select Land</option>
                                         @forelse($land as $l)
-                                            <option value="{{$l->id}}" {{ old('lands_id')==$l->id?"selected":""}}> {{$l->name_en}}</option>
+                                            <option value="{{$l->id}}" {{ old('land_id')==$l->id?"selected":""}}> {{$l->name_en}}</option>
                                         @empty
                                             <option value="">No Role found</option>
                                         @endforelse
                                     </select>
-                                    @if($errors->has('lands_id'))
-                                        <span class="text-danger"> {{ $errors->first('lands_id') }}</span>
+                                    @if($errors->has('land_id'))
+                                        <span class="text-danger"> {{ $errors->first('land_id') }}</span>
                                     @endif
                                 </div>
                             </div>
@@ -49,7 +49,7 @@
                             <div class="col-md-6 col-12">
                                 <div class="form-group">
                                     <label for="start_time">Start Time <i class="text-danger">*</i></label>
-                                    <input type="text" id="start_time" class="form-control" value="{{ old('start_time')}}" name="start_time">
+                                    <input type="datetime-local" id="start_time" class="form-control" value="{{ old('start_time')}}" name="start_time">
                                     @if($errors->has('start_time'))
                                         <span class="text-danger"> {{ $errors->first('start_time') }}</span>
                                     @endif
@@ -58,7 +58,7 @@
                             <div class="col-md-6 col-12">
                                 <div class="form-group">
                                     <label for="end_time">End Time <i class="text-danger">*</i></label>
-                                    <input type="text" id="start_time" class="form-control" value="{{ old('end_time')}}" name="end_time">
+                                    <input type="datetime-local" id="start_time" class="form-control" value="{{ old('end_time')}}" name="end_time">
                                     @if($errors->has('end_time'))
                                         <span class="text-danger"> {{ $errors->first('end_time') }}</span>
                                     @endif

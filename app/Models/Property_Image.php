@@ -5,11 +5,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Land extends Model
+class Property_Image extends Model
 {
     use HasFactory;
-
+    
     public function project(){
-        return $this->hasMany(Project::class);
+        return $this->belongsTo(Project::class);
     }
 }

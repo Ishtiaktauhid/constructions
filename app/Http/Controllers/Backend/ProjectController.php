@@ -39,7 +39,7 @@ class ProjectController extends Controller
         try{
             $project=new Project();
             $project->project_name=$request->project_name;
-            $project->lands_id=$request->lands_id;
+            $project->land_id=$request->land_id;
             $project->description=$request->description;
             $project->start_time=$request->start_time;
             $project->end_time=$request->end_time;
@@ -51,7 +51,7 @@ class ProjectController extends Controller
             else 
                 return redirect()->back()->withInput()->with('error','Please try again');
         }catch(Exception $e){
-            dd($e);
+            //dd($e);
             return redirect()->back()->withInput()->with('error','Please try again');
         }
     }
@@ -70,17 +70,17 @@ class ProjectController extends Controller
     public function edit($id)
     {
         $land=Land::get();
-        $project=Project::find(encryptor('decrypt',$id));
+        $project=Project::find(encryptor('decrypt', $id));
         return view('backend.project.edit',compact('project','land'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Project $project)
+    public function update(Request $request, $id)
     {
         try{
-            $project=Project::find(encryptor('decrypt',$id));
+            $project=Project::find($id);
             $project->project_name=$request->project_name;
             $project->land_id=$request->land_id;
             $project->description=$request->description;
@@ -94,7 +94,7 @@ class ProjectController extends Controller
             else 
                 return redirect()->back()->withInput()->with('error','Please try again');
         }catch(Exception $e){
-            // dd($e);
+            dd($e);
             return redirect()->back()->withInput()->with('error','Please try again');
         }
     }

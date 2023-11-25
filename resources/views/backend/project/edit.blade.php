@@ -16,17 +16,17 @@
                         <div class="row">
                             <div class="col-md-6 col-12">
                                 <div class="form-group">
-                                    <label for="lands_id">Land  <i class="text-danger">*</i></label>
-                                    <select class="form-control" name="lands_id" id="lands_id">
+                                    <label for="land_id">Land  <i class="text-danger">*</i></label>
+                                    <select class="form-control" name="land_id" id="land_id">
                                         <option value="">Select Land</option>
                                         @forelse($land as $l)
-                                            <option value="{{$l->id}}" {{ old('lands_id',$project->lands_id)==$l->id?"selected":""}}> {{ $l->name_en}}</option>
+                                            <option value="{{$l->id}}" {{ old('land_id',$project->land_id)==$l->id?"selected":""}}> {{ $l->name_en}}</option>
                                         @empty
                                             <option value="">No Role found</option>
                                         @endforelse
                                     </select>
-                                    @if($errors->has('lands_id'))
-                                        <span class="text-danger"> {{ $errors->first('lands_id') }}</span>
+                                    @if($errors->has('land_id'))
+                                        <span class="text-danger"> {{ $errors->first('land_id') }}</span>
                                     @endif
                                 </div>
                             </div>

@@ -8,6 +8,7 @@ use App\Http\Controllers\Backend\DashboardController as dashboard;
 use App\Http\Controllers\Backend\PermissionController as permission;
 use App\Http\Controllers\Backend\LandController as land;
 use App\Http\Controllers\Backend\ProjectController as project;
+use App\Http\Controllers\Backend\PropertyImageController as property_image;
  
 
 /*
@@ -37,6 +38,7 @@ Route::middleware(['checkrole'])->prefix('admin')->group(function(){
     Route::post('permission/{role}', [permission::class, 'save'])->name('permission.save');
     Route::resource('land', land::class);
     Route::resource('project', Project::class);
+    Route::resource('property', property_image::class);
 });
     
 Route::get('/', function () {
