@@ -1,5 +1,5 @@
 @extends('backend.layout.app')
-@section('title',trans('Client'))
+@section('title',trans('Mateial'))
 @section('page',trans('List'))
 @section('content')
 <div class="row">
@@ -8,35 +8,31 @@
             
             <!-- table bordered -->
             <div class="table-responsive"><div>
-                <a class="pull-right fs-1" href="{{route('client.create')}}"><i class="fa fa-plus"></i></a>
+                <a class="pull-right fs-1" href="{{route('material.create')}}"><i class="fa fa-plus"></i></a>
             </div>
                 <table class="table table-bordered mb-0">
                     <thead>
                         <tr>
                             <th scope="col">{{__('#SL')}}</th>
-                            <th scope="col">{{__('Name')}}</th>
-                            <th scope="col">{{__('Email')}}</th>
-                            <th scope="col">{{__('Contact NO')}}</th>
-                            <th scope="col">{{__('Contact Details')}}</th>
+                            <th scope="col">{{__('Material Name')}}</th>
+                           <th scope="col">{{__('Description')}}</th>
                             <th class="white-space-nowrap">{{__('Action') }}</th>
                         </tr>
                     </thead>
                     <tbody>
-                        @forelse($client as $c)
+                        @forelse($material as $c)
                         <tr>
                             <th scope="row">{{ ++$loop->index }}</th>
                             <td>{{$c->name}}</td>
-                            <td>{{$c->email}}</td>
-                            <td>{{$c->phone}}</td>
-                            <td>{{$c->client_details}}</td>
+                             <td>{{$c->description}}</td>
                             <td class="white-space-nowrap">
-                                <a href="{{route('client.edit',encryptor('encrypt',$c->id))}}">
+                                <a href="{{route('material.edit',encryptor('encrypt',$c->id))}}">
                                     <i class="fa fa-edit"></i>
                                 </a>
                                 <a href="javascript:void()" onclick="$('#form{{$c->id}}').submit()">
                                     <i class="fa fa-trash"></i>
                                 </a>
-                                <form id="form{{$c->id}}" action="{{route('client.destroy',encryptor('encrypt',$c->id))}}" method="post">
+                                <form id="form{{$c->id}}" action="{{route('material.destroy',encryptor('encrypt',$c->id))}}" method="post">
                                     @csrf
                                     @method('delete')
                                 </form>

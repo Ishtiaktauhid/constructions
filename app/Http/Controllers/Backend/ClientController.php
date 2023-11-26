@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Backend;
 use App\Models\Client;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Backend\client\ClientNewRequest; 
-use App\Http\Requests\Backend\client\UpdateLandRequest; 
+use App\Http\Requests\Backend\client\UpdateClientRequest; 
 use Illuminate\Http\Request;
 
 class ClientController extends Controller

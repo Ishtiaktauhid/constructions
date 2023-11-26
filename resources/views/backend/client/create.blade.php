@@ -1,7 +1,7 @@
 @extends('backend.layout.app')
 
 @section('title',trans('Client'))
-@section('page',trans('Update'))
+@section('page',trans('Create'))
 
 @section('content')
 <div class="row">
@@ -35,7 +35,7 @@
                             <div class="col-md-6 col-12">
                                 <div class="form-group">
                                     <label for="phone">Contact <i class="text-danger">*</i></label>
-                                    <input type="text" id="phone" class="form-control" value="{{ old('phone')}}" name="description">
+                                    <input type="text" id="phone" class="form-control" value="{{ old('phone')}}" name="phone">
                                     @if($errors->has('phone'))
                                         <span class="text-danger"> {{ $errors->first('phone') }}</span>
                                     @endif
@@ -44,7 +44,10 @@
                                <div class="col-md-6 col-12">
                                 <div class="form-group">
                                     <label for="client_details">Client Details</label>
-                                    <input type="text" id="client_details" class="form-control" placeholder="Image" name="client_details">
+                                    <input type="text" id="client_details" class="form-control" name="client_details">
+                                    @if($errors->has('client_details'))
+                                    <span class="text-danger"> {{ $errors->first('client_details') }}</span>
+                                @endif
                                 </div>
                             </div> 
                           </div>

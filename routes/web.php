@@ -10,6 +10,8 @@ use App\Http\Controllers\Backend\LandController as land;
 use App\Http\Controllers\Backend\ProjectController as project;
 use App\Http\Controllers\Backend\PropertyImageController as property_image;
 use App\Http\Controllers\Backend\ClientController as client;
+use App\Http\Controllers\Backend\EmployeeController as employee;
+use App\Http\Controllers\Backend\MaterialController as material;
  
 
 /*
@@ -41,6 +43,8 @@ Route::middleware(['checkrole'])->prefix('admin')->group(function(){
     Route::resource('project', Project::class);
     Route::resource('property', property_image::class);
     Route::resource('client', Client::class);
+    Route::resource('employee', Employee::class);
+    Route::resource('material', Material::class);
 });
     
 Route::get('/', function () {

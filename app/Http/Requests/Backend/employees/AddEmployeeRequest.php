@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Requests\Backend\client;
+namespace App\Http\Requests\Backend\employees;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class ClientNewRequest extends FormRequest
+class AddEmployeeRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
