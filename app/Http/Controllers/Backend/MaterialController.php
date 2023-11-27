@@ -35,6 +35,7 @@ class MaterialController extends Controller
             $material=new Material;
             $material->name=$request->material_name;
              $material->description=$request->description;
+             $material->created_by=currentUserId();
              $material->save();
              $this->notice::success('material data saved');
              return redirect()->route('material.index');
@@ -71,6 +72,7 @@ class MaterialController extends Controller
             $material=Material::find($id);
             $material->name=$request->material_name;
              $material->description=$request->description;
+             $material->updated_by=currentUserId();
              $material->save();
              $this->notice::success('material data Updated');
              return redirect()->route('material.index');

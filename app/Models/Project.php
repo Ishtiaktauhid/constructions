@@ -16,4 +16,8 @@ class Project extends Model
     public function property(){
         return $this->hasMany(Property_Image::class);
     }
+
+    public function project_material(){
+        return $this->hasMany(Project_material::class);
+    }
 }

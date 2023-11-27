@@ -12,6 +12,9 @@ use App\Http\Controllers\Backend\PropertyImageController as property_image;
 use App\Http\Controllers\Backend\ClientController as client;
 use App\Http\Controllers\Backend\EmployeeController as employee;
 use App\Http\Controllers\Backend\MaterialController as material;
+use App\Http\Controllers\Backend\AssetController as asset;
+use App\Http\Controllers\Backend\ProjectMaterialController as pm;
+use App\Http\Controllers\Backend\PaymentController as payment;
  
 
 /*
@@ -40,11 +43,14 @@ Route::middleware(['checkrole'])->prefix('admin')->group(function(){
     Route::get('permission/{role}', [permission::class, 'index'])->name('permission.list');
     Route::post('permission/{role}', [permission::class, 'save'])->name('permission.save');
     Route::resource('land', land::class);
-    Route::resource('project', Project::class);
+    Route::resource('project', project::class);
     Route::resource('property', property_image::class);
-    Route::resource('client', Client::class);
-    Route::resource('employee', Employee::class);
-    Route::resource('material', Material::class);
+    Route::resource('client', client::class);
+    Route::resource('employee', employee::class);
+    Route::resource('material', material::class);
+    Route::resource('asset', asset::class); 
+    Route::resource('pm', pm::class);
+    Route::resource('payment', payment::class);
 });
     
 Route::get('/', function () {

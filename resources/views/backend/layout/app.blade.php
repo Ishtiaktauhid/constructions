@@ -168,11 +168,13 @@
                                 class="icon icon-chart-bar-33"></i><span class="nav-text">Charts</span></a>
                         <ul aria-expanded="false">
                             <li><a href="{{route('land.index')}}">Lands</a></li>
-                            <li><a href="./chart-morris.html">Morris</a></li>
-                            <li><a href="./chart-chartjs.html">Chartjs</a></li>
-                            <li><a href="./chart-chartist.html">Chartist</a></li>
-                            <li><a href="./chart-sparkline.html">Sparkline</a></li>
-                            <li><a href="./chart-peity.html">Peity</a></li>
+                            <li><a href="{{route('project.index')}}">Project</a></li>
+                            <li><a href="{{route('pm.index')}}">Project Material</a></li>
+                            <li><a href="{{route('client.index')}}">Client</a></li>
+                            <li><a href="{{route('property.index')}}">Property</a></li>
+                            <li><a href="{{route('employee.index')}}">Employees</a></li>
+                            <li><a href="{{route('material.index')}}">Materials</a></li>
+                            <li><a href="{{route('asset.index')}}">Assets</a></li>
                         </ul>
                     </li>
                     <li class="nav-label">Components</li>
