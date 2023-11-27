@@ -35,7 +35,7 @@
                                     <select class="form-control" name="material_id" id="material_id">
                                         <option value="">Select Material</option>
                                         @forelse($material as $m)
-                                            <option value="{{$m->id}}" {{ old('material_id',$pmaterial->name)==$l->id?"selected":""}}> {{$m->name}}</option>
+                                            <option value="{{$m->id}}" {{ old('material_id',$pmaterial->material_id)==$l->id?"selected":""}}> {{$m->name}}</option>
                                         @empty
                                             <option value="">No Role found</option>
                                         @endforelse
@@ -48,8 +48,8 @@
                             <div class="col-md-6 col-12">
                                 <div class="form-group">
                                     <label for="quantity">Quantity <i class="text-danger">*</i></label>
-                                    <input type="text" id="quantity" class="form-control" value="{{ old('quantity')}}" name="quantity">
-                                    @if($errors->has('project_name'))
+                                    <input type="text" id="quantity" class="form-control" value="{{ old('quantity',$pmaterial->quantity)}}" name="quantity">
+                                    @if($errors->has('quantity'))
                                         <span class="text-danger"> {{ $errors->first('quantity') }}</span>
                                     @endif
                                 </div>
@@ -57,7 +57,7 @@
                           <div class="col-md-6 col-12">
                                 <div class="form-group">
                                     <label for="issued_by">Issued_By <i class="text-danger">*</i></label>
-                                    <input type="text" id="issued_by" class="form-control" value="{{ old('issued_by')}}" name="issued_by">
+                                    <input type="text" id="issued_by" class="form-control" value="{{ old('issued_by',$pmaterial->issued_by)}}" name="issued_by">
                                     @if($errors->has('issued_by'))
                                         <span class="text-danger"> {{ $errors->first('issued_by') }}</span>
                                     @endif
@@ -66,7 +66,7 @@
                             <div class="col-md-6 col-12">
                                 <div class="form-group">
                                     <label for="issued_date">Issued_date<i class="text-danger">*</i></label>
-                                    <input type="date" id="issued_date" class="form-control" value="{{ old('issued_date')}}" name="issued_date">
+                                    <input type="date" id="issued_date" class="form-control" value="{{ old('issued_date',$pmaterial->issued_date)}}" name="issued_date">
                                     @if($errors->has('issued_date'))
                                         <span class="text-danger"> {{ $errors->first('issued_date') }}</span>
                                     @endif
@@ -75,7 +75,7 @@
                             <div class="col-md-6 col-12">
                                 <div class="form-group">
                                     <label for="received_by">Received By <i class="text-danger">*</i></label>
-                                    <input type="text" id="received_by" class="form-control" value="{{ old('received_by')}}" name="received_by">
+                                    <input type="text" id="received_by" class="form-control" value="{{ old('received_by',$pmaterial->received_by)}}" name="received_by">
                                     @if($errors->has('received_by'))
                                         <span class="text-danger"> {{ $errors->first('received_by') }}</span>
                                     @endif
@@ -84,7 +84,7 @@
                             <div class="col-md-6 col-12">
                                 <div class="form-group">
                                     <label for="received_date">Received Date</label>
-                                    <input type="date" id="received_date" class="form-control" value="{{ old('received_date')}}" name="received_date">
+                                    <input type="date" id="received_date" class="form-control" value="{{ old('received_date',$pmaterial->received_date)}}" name="received_date">
                                     @if($errors->has('received_date'))
                                         <span class="text-danger"> {{ $errors->first('received_date') }}</span>
                                     @endif

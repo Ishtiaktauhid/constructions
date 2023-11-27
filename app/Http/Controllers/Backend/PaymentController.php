@@ -4,7 +4,9 @@ namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
 use App\Models\Payment;
+use App\Models\Client;
 use Illuminate\Http\Request;
+use Exception;
 
 class PaymentController extends Controller
 {
@@ -22,7 +24,8 @@ class PaymentController extends Controller
      */
     public function create()
     {
-        return view('backend.payment.create');
+        $client=Client::get();
+        return view('backend.payment.create', compact('client'));
     }
 
     /**
@@ -37,7 +40,7 @@ class PaymentController extends Controller
         $payment->payment_date=$request->payment_date;
         $payment->payment_method=$request->payment_method;
         $payment->save();
-        $this->notice::success('Land data saved');
+        $this->notice::success('Payment data saved');
         return redirect()->route('payment.index');
       }
       catch(Exception $e){
@@ -59,17 +62,33 @@ class PaymentController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Payment $payment)
+    public function edit($id)
     {
-        //
+        $client=Client::get();
+        $payment=Payment::find($id);
+        return view('backend.payment.edit',compact('payment','client'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Payment $payment)
+    public function update(Request $request,$id)
     {
-        //
+        try{
+            $payment=Payment::find($id);
+            $payment->client_id=$request->client_id;
+            $payment->amount=$request->amount;
+            $payment->payment_date=$request->payment_date;
+            $payment->payment_method=$request->payment_method;
+            $payment->save();
+            $this->notice::success('Payment data updated');
+            return redirect()->route('payment.index');
+          }
+          catch(Exception $e){
+            $this->notice::error('Please try again');
+             dd($e);
+            return redirect()->back()->withInput();
+        }
     }
 
     /**
@@ -77,6 +96,10 @@ class PaymentController extends Controller
      */
     public function destroy(Payment $payment)
     {
-        //
+        $payment=Payment::findOrFail(encryptor('decrypt',$id));
+        if($payment->delete()){
+            $this->notice::warning('Deleted Permanently!');
+            return redirect()->back();
+        }
     }
 }

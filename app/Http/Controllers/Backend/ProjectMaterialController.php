@@ -75,7 +75,7 @@ class ProjectMaterialController extends Controller
     {   
         $project=Project::get();
         $material=Material::get();
-        $pmaterial=Project_material::find(encryptor('decrypt', $id));
+        $pmaterial=Project_material::findOrFail(encryptor('decrypt', $id));
         return view('backend.pm.edit',compact('pmaterial','project','material'));
     }
 
@@ -85,7 +85,7 @@ class ProjectMaterialController extends Controller
     public function update(UpdatePMRequest $request, $id)
     {
         try{
-            $pmaterial=Project_material::find(encryptor('decrypt', $id));
+            $pmaterial=Project_material::findOrFail(encryptor('decrypt', $id));
             $pmaterial->project_id=$request->project_id;
             $pmaterial->material_id=$request->material_id;
             $pmaterial->quantity=$request->quantity;
