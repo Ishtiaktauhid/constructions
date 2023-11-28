@@ -175,6 +175,7 @@
                             <li><a href="{{route('employee.index')}}">Employees</a></li>
                             <li><a href="{{route('material.index')}}">Materials</a></li>
                             <li><a href="{{route('asset.index')}}">Assets</a></li>
+                            <li><a href="{{route('payment.index')}}">Payment</a></li>
                         </ul>
                     </li>
                     <li class="nav-label">Components</li>
