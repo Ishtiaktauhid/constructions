@@ -38,11 +38,11 @@
                             <td>{{$p->description}}</td>
                             <td>{{$p->mouza_no_en}}</td>
                             <td>{{$p->rs_no_en}}</td>
-                            <td><img width="50px" src="{{asset('public/uploads/lands/rs/'.$p->rs_image)}}" alt=""></td>
+                            <td><img width="80px" src="{{asset('public/uploads/lands/rs/'.$p->rs_image)}}" alt=""></td>
                             <td>{{$p->bs_no_en}}</td>
-                            <td><img width="50px" src="{{asset('public/uploads/lands/bs/'.$p->bs_image)}}" alt=""></td>
+                            <td><img width="80px" src="{{asset('public/uploads/lands/bs/'.$p->bs_image)}}" alt=""></td>
                             <td>{{$p->registration_no_en}}</td>
-                            <td><img width="50px" src="{{asset('public/uploads/lands/registration/'.$p->registration_image)}}" alt=""></td>
+                            <td><img width="80px" src="{{asset('public/uploads/lands/registration/'.$p->registration_image)}}" alt=""></td>
                             <td>{{$p->land_area}}</td>
                             <td>{{$p->acquire_date}}</td>
                             <td>{{$p->original_owner_details}}</td>

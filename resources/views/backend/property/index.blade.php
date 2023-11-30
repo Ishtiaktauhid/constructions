@@ -24,7 +24,7 @@
                         <tr>
                             <th scope="row">{{ ++$loop->index }}</th>
                             <td>{{$pi->project?->project_name}}</td>
-                            <td><img width="50px" src="{{asset('public/uploads/project/properties/'.      $pi->image_name)}}" alt="asdkfasdkf"></td> 
+                            <td><img width="100px" src="{{asset('public/uploads/project/properties/'.      $pi->image_name)}}" alt="asdkfasdkf"></td> 
                              <td class="white-space-nowrap">
                                 <a href="{{route('property.edit',encryptor('encrypt',$pi->id))}}">
                                     <i class="fa fa-edit"></i>
