@@ -42,7 +42,7 @@
                           <div class="col-md-6 col-12">
                                 <div class="form-group">
                                     <label for="description">Description <i class="text-danger">*</i></label>
-                                    <input type="text" id="description" class="form-control" value="{{ old('description',$project->description)}}" name="description">
+                                    <textarea id="description" class="form-control" name="description">{{ old('description',$project->description)}}</textarea>
                                     @if($errors->has('description'))
                                         <span class="text-danger"> {{ $errors->first('description') }}</span>
                                     @endif
@@ -84,7 +84,12 @@
                                     @endif
                                 </div>
                             </div>
-                             
+                            <div class="col-md-6 col-12">
+                                <div class="form-group">
+                                    <label for="image">Project Image</label>
+                                    <input type="file" id="image" class="form-control" name="image">
+                                </div>
+                            </div>
                             
                         </div>
                        

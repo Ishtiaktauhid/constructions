@@ -21,6 +21,7 @@ return new class extends Migration
             $table->timestamp('end_time')->nullable();
             $table->text('other_project_details')->nullable();
             $table->decimal('project_value', 10, 2);
+            $table->string('image')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });

@@ -50,53 +50,7 @@
             <div class="header-content">
                 <nav class="navbar navbar-expand">
                     <div class="collapse navbar-collapse justify-content-between">
-                        <div class="header-left">
-                            <div class="search_bar dropdown">
-                                <span class="search_icon p-3 c-pointer" data-toggle="dropdown">
-                                    <i class="mdi mdi-magnify"></i>
-                                </span>
-                                <div class="dropdown-menu p-0 m-0">
-                                    <form>
-                                        <input class="form-control" type="search" placeholder="Search" aria-label="Search">
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
-
                         <ul class="navbar-nav header-right">
-                            <li class="nav-item dropdown notification_dropdown">
-                                <a class="nav-link" href="#" role="button" data-toggle="dropdown">
-                                    <i class="mdi mdi-bell"></i>
-                                    <div class="pulse-css"></div>
-                                </a>
-                                <div class="dropdown-menu dropdown-menu-right">
-                                    <ul class="list-unstyled">
-                                        <li class="media dropdown-item">
-                                            <span class="success"><i class="ti-user"></i></span>
-                                            <div class="media-body">
-                                                <a href="#">
-                                                    <p><strong>Martin</strong> has added a <strong>customer</strong> Successfully
-                                                    </p>
-                                                </a>
-                                            </div>
-                                            <span class="notify-time">3:20 am</span>
-                                        </li>
-                                        <li class="media dropdown-item">
-                                            <span class="primary"><i class="ti-shopping-cart"></i></span>
-                                            <div class="media-body">
-                                                <a href="#">
-                                                    <p><strong>Jennifer</strong> purchased Light Dashboard 2.0.</p>
-                                                </a>
-                                            </div>
-                                            <span class="notify-time">3:20 am</span>
-                                        </li>
-                                        
-                                    </ul>
-                                    <a class="all-notification" href="#">See all notifications
-                                        <i class="ti-arrow-right"></i>
-                                    </a>
-                                </div>
-                            </li>
                             <li class="nav-item dropdown header-profile">
                                 <a class="nav-link" href="#" role="button" data-toggle="dropdown">
                                     <i class="mdi mdi-account"></i>
@@ -106,10 +60,6 @@
                                     <a href="./app-profile.html" class="dropdown-item">
                                         <i class="icon-user"></i>
                                         <span class="ml-2">Profile </span>
-                                    </a>
-                                    <a href="./email-inbox.html" class="dropdown-item">
-                                        <i class="icon-envelope-open"></i>
-                                        <span class="ml-2">Inbox </span>
                                     </a>
                                     <a href="{{route('logOut')}}" class="dropdown-item">
                                         <i class="icon-key"></i>
@@ -133,10 +83,52 @@
             <div class="quixnav-scroll">
                 <ul class="metismenu" id="menu">
                     <li class="nav-label first">Main Menu</li>
-                    <li><a class="has-arrow" href="{{route('dashboard')}}" aria-expanded="false"><i
-                                class="icon icon-single-04"></i><span class="nav-text">Dashboard</span></a>
+                    <li>
+                        <a href="{{route('dashboard')}}" aria-expanded="false">
+                            <i class="icon icon-single-04"></i>
+                            <span class="nav-text">Dashboard</span>
+                        </a>
                     </li>
-                    <li class="nav-label">Apps</li>
+                    <li>
+                        <a href="{{route('land.index')}}" aria-expanded="false">
+                            <i class="icon icon-single-04"></i>
+                            <span class="nav-text">Land</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="has-arrow" href="javascript:void()" aria-expanded="false">
+                            <i class="icon icon-chart-bar-33"></i>
+                            <span class="nav-text">Project</span>
+                        </a>
+                        <ul aria-expanded="false">
+                            
+                            <li><a href="{{route('project.index')}}">Project</a></li>
+                            <li><a href="{{route('pm.index')}}">Project Material</a></li>
+                        </ul>
+                    </li>
+                    <!-- <li class="nav-label">Apps</li> -->
+                    <li>
+                        <a class="has-arrow" href="javascript:void()" aria-expanded="false">
+                            <i class="icon icon-chart-bar-33"></i>
+                            <span class="nav-text">Materials</span>
+                        </a>
+                        <ul aria-expanded="false">
+                            <li><a href="{{route('material.index')}}">Materials</a></li>
+                            <li><a href="{{route('asset.index')}}">Assets</a></li>
+                            
+                        </ul>
+                    </li>
+                    
+                    <li>
+                        <a class="has-arrow" href="javascript:void()" aria-expanded="false">
+                            <i class="icon icon-settings"></i>
+                            <span class="nav-text">Client</span>
+                        </a>
+                        <ul aria-expanded="false">
+                            <li><a href="{{route('client.index')}}">Client</a></li>
+                            <li><a href="{{route('payment.index')}}">Payment</a></li>
+                        </ul>
+                    </li>
                     <li>
                         <a class="has-arrow" href="javascript:void()" aria-expanded="false">
                             <i class="icon icon-settings"></i>
@@ -145,62 +137,7 @@
                         <ul aria-expanded="false">
                             <li><a href="{{route('user.index')}}">User</a></li>
                             <li><a href="{{route('role.index')}}">Role</a></li>
-                            <li><a href="./app-calender.html">Settings</a></li>
-                        </ul>
-                    </li>
-                    <li><a class="has-arrow" href="javascript:void()" aria-expanded="false"><i
-                                class="icon icon-chart-bar-33"></i><span class="nav-text">Real State</span></a>
-                        <ul aria-expanded="false">
-                            <li><a href="{{route('land.index')}}">Lands</a></li>
-                            <li><a href="{{route('project.index')}}">Project</a></li>
-                            <li><a href="{{route('pm.index')}}">Project Material</a></li>
-                            <li><a href="{{route('client.index')}}">Client</a></li>
-                            <li><a href="{{route('property.index')}}">Property</a></li>
                             <li><a href="{{route('employee.index')}}">Employees</a></li>
-                            <li><a href="{{route('material.index')}}">Materials</a></li>
-                            <li><a href="{{route('asset.index')}}">Assets</a></li>
-                            <li><a href="{{route('payment.index')}}">Payment</a></li>
-                        </ul>
-                    </li>
-                    
-                    
-               
-                    <li class="nav-label">Forms</li>
-                    <li><a class="has-arrow" href="javascript:void()" aria-expanded="false"><i
-                                class="icon icon-form"></i><span class="nav-text">Forms</span></a>
-                        <ul aria-expanded="false">
-                            <li><a href="./form-element.html">Form Elements</a></li>
-                            <li><a href="./form-wizard.html">Wizard</a></li>
-                            <li><a href="./form-editor-summernote.html">Summernote</a></li>
-                            <li><a href="form-pickers.html">Pickers</a></li>
-                            <li><a href="form-validation-jquery.html">Jquery Validate</a></li>
-                        </ul>
-                    </li>
-                    <li class="nav-label">Table</li>
-                    <li><a class="has-arrow" href="javascript:void()" aria-expanded="false"><i
-                                class="icon icon-layout-25"></i><span class="nav-text">Table</span></a>
-                        <ul aria-expanded="false">
-                            <li><a href="table-bootstrap-basic.html">Bootstrap</a></li>
-                            <li><a href="table-datatable-basic.html">Datatable</a></li>
-                        </ul>
-                    </li>
-
-                    <li class="nav-label">Extra</li>
-                    <li><a class="has-arrow" href="javascript:void()" aria-expanded="false"><i
-                                class="icon icon-single-copy-06"></i><span class="nav-text">Pages</span></a>
-                        <ul aria-expanded="false">
-                            <li><a href="./page-register.html">Register</a></li>
-                            <li><a href="./page-login.html">Login</a></li>
-                            <li><a class="has-arrow" href="javascript:void()" aria-expanded="false">Error</a>
-                                <ul aria-expanded="false">
-                                    <li><a href="./page-error-400.html">Error 400</a></li>
-                                    <li><a href="./page-error-403.html">Error 403</a></li>
-                                    <li><a href="./page-error-404.html">Error 404</a></li>
-                                    <li><a href="./page-error-500.html">Error 500</a></li>
-                                    <li><a href="./page-error-503.html">Error 503</a></li>
-                                </ul>
-                            </li>
-                            <li><a href="./page-lock-screen.html">Lock Screen</a></li>
                         </ul>
                     </li>
                 </ul>

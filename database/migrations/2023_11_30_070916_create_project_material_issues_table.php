@@ -11,19 +11,18 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('project_materials', function (Blueprint $table) {
+        Schema::create('project_material_issues', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('project_id')->index();
             $table->foreign('project_id')->references('id')->on('projects')->onDelete('cascade');
             $table->unsignedBigInteger('material_id')->index();
             $table->foreign('material_id')->references('id')->on('materials')->onDelete('cascade');
-            $table->integer('quantity')->nullable();
-            $table->string('issued_by')->nullable();
-            $table->date('issued_date')->nullable();
-            $table->string('received_by')->nullable();
-            $table->date('received_date')->nullable();
+            $table->integer('quantity');
+            $table->integer('issued_by')->nullable();
+            $table->date('issued_date');
+            $table->integer('received_by')->nullable();
+            $table->date('received_date');
             $table->timestamps();
-            $table->softDeletes();
         });
     }
 
@@ -32,6 +31,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('project_materials');
+        Schema::dropIfExists('project_material_issues');
     }
 };

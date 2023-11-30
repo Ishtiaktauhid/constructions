@@ -19404,3 +19404,20 @@ html[dir="rtl"] [direction="rtl"][data-sidebar-style="compact"]:not([data-layout
       color: #fff; }
 
 /*# sourceMappingURL=style.css.map */
+/* custome */
+.table{
+  color:#000;
+}
+a {
+  color: #593bdb;
+}
+body{
+  color:#000;
+}
+.form-control {
+  border: 1px solid #b3b3b3;
+  color: #000;
+}
+.quixnav .metismenu > li.mm-active ul {
+    background-color: rgb(4 4 4 / 80%);
+}

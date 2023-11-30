@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Backend;
 
-use App\Models\Client;
+use App\Models\Backend\Client;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Backend\client\ClientNewRequest; 
 use App\Http\Requests\Backend\client\UpdateClientRequest; 
