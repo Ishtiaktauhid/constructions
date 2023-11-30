@@ -3,9 +3,9 @@
 namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
-use App\Models\Project;
-use App\Models\Property_Image;
-use App\Models\Land;
+use App\Models\Backend\Project;
+use App\Models\Backend\Property_Image;
+use App\Models\Backend\Land;
 use Illuminate\Http\Request;
 use Exception;
 use File;

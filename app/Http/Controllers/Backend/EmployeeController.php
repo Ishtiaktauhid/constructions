@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Backend;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Models\Employee;
+use App\Models\Backend\Employee;
 use App\Http\Requests\Backend\employees\AddEmployeeRequest; 
 use App\Http\Requests\Backend\employees\UpdateEmployeeRequest; 
 use Exception;

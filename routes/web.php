@@ -14,6 +14,7 @@ use App\Http\Controllers\Backend\MaterialController as material;
 use App\Http\Controllers\Backend\AssetController as asset;
 use App\Http\Controllers\Backend\ProjectMaterialController as pm;
 use App\Http\Controllers\Backend\PaymentController as payment;
+use App\Http\Controllers\Backend\PurchaseMaterialController as purchase;
  
 
 /*
@@ -38,6 +39,12 @@ Route::middleware(['checkauth'])->prefix('admin')->group(function(){
     Route::post('permission/{role}', [permission::class, 'save'])->name('permission.save');
     Route::post('project-file/{id}', [project::class, 'storeFile'])->name('project_file.save');
     Route::get('project-file/delete', [project::class, 'destroyFile'])->name('project_file.delete');
+
+
+
+    //from Tauhid bhai
+    Route::get('/product_search', [purchase::class,'product_search'])->name('pur.product_search');
+        Route::get('/product_search_data', [purchase::class,'product_search_data'])->name('pur.product_search_data');
 });
 Route::middleware(['checkrole'])->prefix('admin')->group(function(){
     Route::resource('user', user::class);
@@ -52,6 +59,8 @@ Route::middleware(['checkrole'])->prefix('admin')->group(function(){
     Route::resource('asset', asset::class); 
     Route::resource('pm', pm::class);
     Route::resource('payment', payment::class);
+      // Route Purchases
+      Route::resource('purchase', purchase::class);
 });
     
 Route::get('/', function () {

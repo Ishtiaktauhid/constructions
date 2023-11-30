@@ -12,6 +12,10 @@
     <link rel="stylesheet" href="{{asset('public/vendor/owl-carousel/css/owl.theme.default.min.css')}}">
     <link href="{{asset('public/vendor/jqvmap/css/jqvmap.min.css')}}" rel="stylesheet">
     <link href="{{asset('public/css/style.css')}}" rel="stylesheet">
+    {{-- from Tauhid bhai --}}
+    <script data-search-pseudo-elements="" defer="" src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/js/all.min.js" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.28.0/feather.min.js" crossorigin="anonymous"></script>
+
 	@stack('styles')
 
 

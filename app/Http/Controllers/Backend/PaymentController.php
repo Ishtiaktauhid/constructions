@@ -3,8 +3,8 @@
 namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
-use App\Models\Payment;
-use App\Models\Client;
+use App\Models\Backend\Payment;
+use App\Models\Backend\Client;
 use Illuminate\Http\Request;
 use Exception;
 

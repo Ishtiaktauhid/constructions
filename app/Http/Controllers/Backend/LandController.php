@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
-use App\Models\Land;
+use App\Models\Backend\Land;
 use App\Http\Requests\Backend\land\StoreLandRequest; 
 use App\Http\Requests\Backend\land\UpdateLandRequest; 
 use Illuminate\Http\Request;

@@ -3,11 +3,11 @@
 namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
-use App\Models\Project_material;
+use App\Models\Backend\Project_material;
 use App\Http\Requests\Backend\project\AddPMRequest; 
 use App\Http\Requests\Backend\project\UpdatePMRequest; 
-use App\Models\Project;
-use App\Models\Material;
+use App\Models\Backend\Project;
+use App\Models\Backend\Material;
 use Illuminate\Http\Request;
 use Exception;
 

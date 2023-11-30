@@ -1,18 +1,15 @@
 <?php
 
-namespace App\Models;
+namespace App\Models\Backend;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Project_material extends Model
+class Property_Image extends Model
 {
     use HasFactory;
-
+    
     public function project(){
         return $this->belongsTo(Project::class);
-    }
-    public function material(){
-        return $this->belongsTo(Material::class);
     }
 }

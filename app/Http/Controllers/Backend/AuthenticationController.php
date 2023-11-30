@@ -5,8 +5,8 @@ namespace App\Http\Controllers\Backend;
 use App\Http\Controllers\Controller;
 
 use Illuminate\Http\Request;
-use App\Models\Role;
-use App\Models\User;
+use App\Models\Backend\Role;
+use App\Models\Backend\User;
 use App\Http\Requests\Authentication\SignupRequest;
 use App\Http\Requests\Authentication\SigninRequest;
 use Illuminate\Support\Facades\Hash;
