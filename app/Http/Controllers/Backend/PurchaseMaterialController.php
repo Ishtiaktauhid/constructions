@@ -47,7 +47,7 @@ class PurchaseMaterialController extends Controller
             $materials=Material::select('id','product_name as value','product_code as label')->where(function($query) use ($request) {
                         $query->where('product_name','like', '%' . $request->name . '%')->orWhere('product_code','like', '%' . $request->name . '%');
                         })->get();
-                      print_r(json_encode($product));  
+                      print_r(json_encode($materials));  
         }
         
     }

@@ -9,10 +9,13 @@ use App\Http\Controllers\Backend\PermissionController as permission;
 use App\Http\Controllers\Backend\LandController as land;
 use App\Http\Controllers\Backend\ProjectController as project;
 use App\Http\Controllers\Backend\ClientController as client;
+use App\Http\Controllers\Backend\SupplierController as supplier;
 use App\Http\Controllers\Backend\EmployeeController as employee;
 use App\Http\Controllers\Backend\MaterialController as material;
 use App\Http\Controllers\Backend\AssetController as asset;
 use App\Http\Controllers\Backend\ProjectMaterialController as pm;
+use App\Http\Controllers\Backend\FloorController as floor;
+use App\Http\Controllers\Backend\ProjectMaterialIssueController as pmissue;
 use App\Http\Controllers\Backend\PaymentController as payment;
 use App\Http\Controllers\Backend\PurchaseMaterialController as purchase;
  
@@ -54,10 +57,13 @@ Route::middleware(['checkrole'])->prefix('admin')->group(function(){
     Route::resource('project', project::class);
     Route::get('project-file/{id}', [project::class, 'addFile'])->name('project_file.create');
     Route::resource('client', client::class);
+    Route::resource('supplier', supplier::class);
     Route::resource('employee', employee::class);
     Route::resource('material', material::class);
     Route::resource('asset', asset::class); 
     Route::resource('pm', pm::class);
+    Route::resource('floor', floor::class);
+    Route::resource('pmissue', pmissue::class);
     Route::resource('payment', payment::class);
       // Route Purchases
       Route::resource('purchase', purchase::class);

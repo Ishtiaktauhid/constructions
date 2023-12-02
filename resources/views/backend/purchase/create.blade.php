@@ -34,7 +34,30 @@
                                     <label for="supplierName" class="float-end"><h6>Supplier<span class="text-danger">*</span></h6></label>
                                 </div>
                                 <div class="col-md-4">
+                                    <select required class="form-control form-select" name="supplierName" id="supplierName">
+                                        <option value="">Select Supplier</option>
+                                        @forelse($supplier as $d)
+                                            <option value="{{$d->id}}" {{ old('supplierName')==$d->id?"selected":""}}> {{ $d->name}}</option>
+                                        @empty
+                                            <option value="">No Supplier found</option>
+                                        @endforelse
+                                    </select>
+                                </div>
+                              @if($errors->has('supplierName'))
+                                <span class="text-danger"> {{ $errors->first('supplierName') }}</span>
+                                @endif
+                                
+                                <div class="col-md-2 mt-2">
+                                    <label for="date" class="float-end"><h6>Date<span class="text-danger">*</span></h6></label>
+                                </div>
+                                <div class="col-md-4">
+                                    <input type="date" id="datepicker" class="form-control" value="{{ old('purchase_date')}}" name="purchase_date" placeholder="dd/mm/yyyy" required>
+                                </div>
 
+                                <div class="col-md-2 mt-2">
+                                    <label for="supplierName" class="float-end"><h6>Supplier<span class="text-danger">*</span></h6></label>
+                                </div>
+                                <div class="col-md-4">
                                     <select required class="form-control form-select" name="supplierName" id="supplierName">
                                         <option value="">Select Supplier</option>
                                         @forelse($supplier as $d)
@@ -47,19 +70,7 @@
 
                                 @if($errors->has('supplierName'))
                                 <span class="text-danger"> {{ $errors->first('supplierName') }}</span>
-                                @endif
-                                <div class="col-md-2 mt-2">
-                                    <label for="date" class="float-end"><h6>Date<span class="text-danger">*</span></h6></label>
-                                </div>
-                                <div class="col-md-4">
-                                    <input type="date" id="datepicker" class="form-control" value="{{ old('purchase_date')}}" name="purchase_date" placeholder="dd/mm/yyyy" required>
-                                </div>
-                                <div class="col-md-2 mt-2">
-                                    <label for="reference_no" class="float-end"><h6>Reference Number</h6></label>
-                                </div>
-                                <div class="col-md-4 mt-2">
-                                    <input type="text" class="form-control" value="{{ old('reference_no')}}" name="reference_no">
-                                </div>
+                                @endif   
                             </div>
                             <div class="row m-3">
                                 <div class="col-8 offset-2">

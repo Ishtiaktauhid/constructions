@@ -1,5 +1,5 @@
 @extends('backend.layout.app')
-@section('title',trans('Project Material List'))
+@section('title',trans('supplier'))
 @section('page',trans('List'))
 @section('content')
 <div class="row">
@@ -8,35 +8,35 @@
             
             <!-- table bordered -->
             <div class="table-responsive"><div>
-                <a class="pull-right fs-1" href="{{route('pm.create')}}"><i class="fa fa-plus"></i></a>
+                <a class="pull-right fs-1" href="{{route('supplier.create')}}"><i class="fa fa-plus"></i></a>
             </div>
                 <table class="table table-bordered mb-0">
                     <thead>
                         <tr>
                             <th scope="col">{{__('#SL')}}</th>
-                            <th scope="col">{{__('Project Name')}}</th>
-                            <th scope="col">{{__('Material Name')}}</th>
-                            <th scope="col">{{__('Quantity')}}</th>
-                             
+                            <th scope="col">{{__('Name')}}</th>
+                            <th scope="col">{{__('Email')}}</th>
+                            <th scope="col">{{__('Contact NO')}}</th>
+                            <th scope="col">{{__('Details')}}</th>
                             <th class="white-space-nowrap">{{__('Action') }}</th>
                         </tr>
                     </thead>
                     <tbody>
-                        @forelse($pmaterial as $m)
+                        @forelse($supplier as $s)
                         <tr>
                             <th scope="row">{{ ++$loop->index }}</th>
-                            <td>{{$m->project?->project_name}}</td>
-                            <td>{{$m->material?->name}}</td>
-                            <td>{{$m->quantity}}</td>
-                            
+                            <td>{{$s->name}}</td>
+                            <td>{{$s->email}}</td>
+                            <td>{{$s->phone}}</td>
+                            <td>{{$s->details}}</td>
                             <td class="white-space-nowrap">
-                                <a href="{{route('pm.edit',encryptor('encrypt',$m->id))}}">
+                                <a href="{{route('supplier.edit',encryptor('encrypt',$s->id))}}">
                                     <i class="fa fa-edit"></i>
                                 </a>
-                                <a href="javascript:void()" onclick="$('#form{{$m->id}}').submit()">
+                                <a href="javascript:void()" onclick="$('#form{{$s->id}}').submit()">
                                     <i class="fa fa-trash"></i>
                                 </a>
-                                <form id="form{{$m->id}}" action="{{route('pm.destroy',encryptor('encrypt',$m->id))}}" method="post">
+                                <form id="form{{$s->id}}" action="{{route('supplier.destroy',encryptor('encrypt',$s->id))}}" method="post">
                                     @csrf
                                     @method('delete')
                                 </form>

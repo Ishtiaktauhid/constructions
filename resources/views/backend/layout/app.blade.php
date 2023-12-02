@@ -135,6 +135,16 @@
                     </li>
                     <li>
                         <a class="has-arrow" href="javascript:void()" aria-expanded="false">
+                            <i class="icon icon-chart-bar-33"></i>
+                            <span class="nav-text">Purchase</span>
+                        </a>
+                        <ul aria-expanded="false">
+                            <li><a href="{{route('purchase.index')}}">Purchase Materials</a></li>
+                            
+                        </ul>
+                    </li>
+                    <li>
+                        <a class="has-arrow" href="javascript:void()" aria-expanded="false">
                             <i class="icon icon-settings"></i>
                             <span class="nav-text">Settings</span>
                         </a>

@@ -1,5 +1,5 @@
 @extends('backend.layout.app')
-@section('title',trans('Project List'))
+@section('title',trans('Project Issue List'))
 @section('page',trans('List'))
 
 @section('content')
@@ -11,15 +11,15 @@
                 <div class="col-auto my-4">
                     <h1 class="page-header-title">
                         <div class="page-header-icon"><i class="fa-solid fa-boxes-stacked"></i></div>
-                        Purchase List
+                        Project Issue List
                     </h1>
                 </div>
                 <div class="col-auto my-4">
 
-                    <a href="{{ route('purchase.create') }}"
+                    <a href="{{ route('pmissue.create') }}"
                         class="btn btn-primary add-list my-1"><i class="fa-solid fa-plus me-3"></i>Add
                     </a>
-                    <a href="{{ route('purchase.index') }}"
+                    <a href="{{ route('pmissue.index') }}"
                         class="btn btn-danger add-list my-1"><i class="fa-solid fa-trash me-3"></i>Clear Search
                     </a>
                 </div>
@@ -37,7 +37,7 @@
         <div class="card-body">
             <div class="row mx-n4">
                 <div class="col-lg-12 card-header mt-n4">
-                    <form action="{{ route('purchase.index') }}" method="GET">
+                    <form action="{{ route('pmissue.index') }}" method="GET">
                         <div class="d-flex flex-wrap align-items-center justify-content-between">
                             <div class="form-group row align-items-center">
                                 <label for="row" class="col-auto">Row:</label>
@@ -74,13 +74,9 @@
                             <thead class="thead-light">
                                 <tr>
                                     <th scope="col">{{__('No.')}}</th>
-                                    <th scope="col">{{__('Purchase Date')}}</th>
-                                    <th scope="col">{{__('Supplier')}}</th>
-                                    <th scope="col">{{__('Purchase No')}}</th>
-                                    <th scope="col">{{__('Status')}}</th>
-                                    <th scope="col">{{__('Sub Amount')}}</th>
-                                    <th scope="col">{{__('Discount')}}</th>
-                                    <th scope="col">{{__('Total')}}</th>
+                                    <th scope="col">{{__('Project')}}</th>
+                                    <th scope="col">{{__('Material')}}</th>
+                                    <th scope="col">{{__('Quantity')}}</th>
                                 </tr>
                             </thead>
                             
