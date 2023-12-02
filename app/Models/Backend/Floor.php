@@ -8,4 +8,12 @@ use Illuminate\Database\Eloquent\Model;
 class Floor extends Model
 {
     use HasFactory;
+
+    public function project(){
+        return $this->belongsTo(Project::class);
+    }
+
+    public function flats(){
+        return $this->hasMany(Flat::class);
+    }
 }

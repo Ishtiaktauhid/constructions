@@ -15,6 +15,7 @@ use App\Http\Controllers\Backend\MaterialController as material;
 use App\Http\Controllers\Backend\AssetController as asset;
 use App\Http\Controllers\Backend\ProjectMaterialController as pm;
 use App\Http\Controllers\Backend\FloorController as floor;
+use App\Http\Controllers\Backend\FlatController as flat;
 use App\Http\Controllers\Backend\ProjectMaterialIssueController as pmissue;
 use App\Http\Controllers\Backend\PaymentController as payment;
 use App\Http\Controllers\Backend\PurchaseMaterialController as purchase;
@@ -65,6 +66,7 @@ Route::middleware(['checkrole'])->prefix('admin')->group(function(){
     Route::resource('floor', floor::class);
     Route::resource('pmissue', pmissue::class);
     Route::resource('payment', payment::class);
+    Route::resource('flat', flat::class);
       // Route Purchases
       Route::resource('purchase', purchase::class);
 });

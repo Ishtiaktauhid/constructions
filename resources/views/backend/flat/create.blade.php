@@ -1,6 +1,6 @@
 @extends('backend.layout.app')
 
-@section('title',trans('Floor Create'))
+@section('title',trans('Flat Create'))
 @section('page',trans('Create'))
 
 @section('content')
@@ -9,7 +9,7 @@
         <div class="card">
             <div class="card-content">
                 <div class="card-body">
-                    <form class="form" method="post" enctype="multipart/form-data" action="{{route('floor.store')}}">
+                    <form class="form" method="post" enctype="multipart/form-data" action="{{route('flat.store')}}">
                         @csrf
                         <div class="row">
                             <div class="col-md-6 col-12">
@@ -28,25 +28,51 @@
                                     @endif
                                 </div>
                             </div>
-                             
                             <div class="col-md-6 col-12">
                                 <div class="form-group">
-                                    <label for="floorname">Floor Name <i class="text-danger">*</i></label>
-                                    <input type="text" id="floorname" class="form-control" value="{{ old('floorname')}}" name="floorname">
-                                    @if($errors->has('floorname'))
-                                        <span class="text-danger"> {{ $errors->first('floorname') }}</span>
+                                    <label for="floor_id">Floor Name  <i class="text-danger">*</i></label>
+                                    <select class="form-control" name="floor_id" id="floor_id">
+                                        <option value="">Select Floor</option>
+                                        @forelse($floor as $f)
+                                            <option value="{{$f->id}}" {{ old('floor_id')==$f->id?"selected":""}}> {{$f->floorname}}</option>
+                                        @empty
+                                            <option value="">No Role found</option>
+                                        @endforelse
+                                    </select>
+                                    @if($errors->has('floor_id'))
+                                        <span class="text-danger"> {{ $errors->first('floor_id') }}</span>
                                     @endif
                                 </div>
                             </div>
+                             
+                           
                           <div class="col-md-6 col-12">
                                 <div class="form-group">
-                                    <label for="total_square_ft">Total Square Ft. <i class="text-danger">*</i></label>
-                                    <input type="text" id="total_square_ft" class="form-control" value="{{ old('total_square_ft')}}" name="total_square_ft">
-                                    @if($errors->has('total_square_ft'))
-                                        <span class="text-danger"> {{ $errors->first('total_square_ft') }}</span>
+                                    <label for="flatName">Flat Name<i class="text-danger">*</i></label>
+                                    <input type="text" id="flatName" class="form-control" value="{{ old('flatName')}}" name="flatName">
+                                    @if($errors->has('flatName'))
+                                        <span class="text-danger"> {{ $errors->first('flatName') }}</span>
                                     @endif
                                 </div>
                             </div>
+
+                            <div class="col-md-6 col-12">
+                                <div class="form-group">
+                                    <label for="floor_id">Total Square Feet <i class="text-danger">*</i></label>
+                                    <select class="form-control" name="floor_id" id="floor_id">
+                                        <option value="">Select Floor</option>
+                                        @forelse($floor as $f)
+                                            <option value="{{$f->id}}" {{ old('total_square_ft')==$f->id?"selected":""}}> {{$f->total_square_ft}}</option>
+                                        @empty
+                                            <option value="">No Role found</option>
+                                        @endforelse
+                                    </select>
+                                    @if($errors->has('floor_id'))
+                                        <span class="text-danger"> {{ $errors->first('floor_id') }}</span>
+                                    @endif
+                                </div>
+                            </div>
+
                             <div class="col-md-6 col-12">
                                 <div class="form-group">
                                     <label for="total_cost">Total Cost<i class="text-danger">*</i></label>

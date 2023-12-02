@@ -17,7 +17,15 @@ class Project extends Model
         return $this->hasMany(Property_Image::class);
     }
 
+    public function floors(){
+        return $this->hasMany(Floor::class);
+    }
+
+    public function flats(){
+        return $this->hasMany(Flat::class);
+    }
     public function project_material(){
         return $this->hasMany(Project_material::class);
     }
+
 }
