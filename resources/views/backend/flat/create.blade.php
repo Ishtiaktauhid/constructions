@@ -55,23 +55,17 @@
                                     @endif
                                 </div>
                             </div>
-
+                            
                             <div class="col-md-6 col-12">
                                 <div class="form-group">
-                                    <label for="floor_id">Total Square Feet <i class="text-danger">*</i></label>
-                                    <select class="form-control" name="floor_id" id="floor_id">
-                                        <option value="">Select Floor</option>
-                                        @forelse($floor as $f)
-                                            <option value="{{$f->id}}" {{ old('total_square_ft')==$f->id?"selected":""}}> {{$f->total_square_ft}}</option>
-                                        @empty
-                                            <option value="">No Role found</option>
-                                        @endforelse
-                                    </select>
-                                    @if($errors->has('floor_id'))
-                                        <span class="text-danger"> {{ $errors->first('floor_id') }}</span>
+                                    <label for="total_square_ft">Total Square Ft.<i class="text-danger">*</i></label>
+                                    <input type="text" id="total_square_ft" class="form-control" value="{{ old('total_square_ft')}}" name="total_square_ft">
+                                    @if($errors->has('total_square_ft'))
+                                        <span class="text-danger"> {{ $errors->first('total_square_ft') }}</span>
                                     @endif
                                 </div>
                             </div>
+                            
 
                             <div class="col-md-6 col-12">
                                 <div class="form-group">
@@ -85,25 +79,14 @@
                             
                             <div class="col-md-6 col-12">
                                 <div class="form-group">
-                                    <label for="total_budget">Total Budget<i class="text-danger">*</i></label>
-                                    <input type="text" id="total_budget" class="form-control" value="{{ old('total_budget')}}" name="total_budget">
-                                    @if($errors->has('total_budget'))
-                                        <span class="text-danger"> {{ $errors->first('total_budget') }}</span>
+                                    <label for="sale_price">Sale Price<i class="text-danger">*</i></label>
+                                    <input type="text" id="sale_price" class="form-control" value="{{ old('sale_price')}}" name="sale_price">
+                                    @if($errors->has('sale_price'))
+                                        <span class="text-danger"> {{ $errors->first('sale_price') }}</span>
                                     @endif
                                 </div>
                             </div> 
-                            <div class="col-md-6 col-12">
-                                <div class="form-group">
-                                    <label for="use_status">Use Status</label>
-                                    <select id="use_status" class="form-control" name="use_status">
-                                        <option value="0" @if(old('use_status')==0) selected @endif>No</option>
-                                        <option value="1" @if(old('use_status')==1) selected @endif>Yes</option>
-                                    </select>
-                                    @if($errors->has('use_status'))
-                                        <span class="text-danger"> {{ $errors->first('use_status') }}</span>
-                                    @endif
-                                </div>
-                            </div>
+                            
                             
                         </div>
                        

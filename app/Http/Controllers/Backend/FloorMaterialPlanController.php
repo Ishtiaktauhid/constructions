@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers\Backend;
 
-use App\Models\Backend\ProjectMaterialPlan;
+use App\Models\Backend\FloorMaterialPlan;
 use Illuminate\Http\Request;
 
-class ProjectMaterialPlanController extends Controller
+class FloorMaterialPlanController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -34,7 +34,7 @@ class ProjectMaterialPlanController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(ProjectMaterialPlan $projectMaterialPlan)
+    public function show(FloorMaterialPlan $floorMaterialPlan)
     {
         //
     }
@@ -42,7 +42,7 @@ class ProjectMaterialPlanController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(ProjectMaterialPlan $projectMaterialPlan)
+    public function edit(FloorMaterialPlan $floorMaterialPlan)
     {
         //
     }
@@ -50,7 +50,7 @@ class ProjectMaterialPlanController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, ProjectMaterialPlan $projectMaterialPlan)
+    public function update(Request $request, FloorMaterialPlan $floorMaterialPlan)
     {
         //
     }
@@ -58,7 +58,7 @@ class ProjectMaterialPlanController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(ProjectMaterialPlan $projectMaterialPlan)
+    public function destroy(FloorMaterialPlan $floorMaterialPlan)
     {
         //
     }

@@ -31,9 +31,9 @@
                             <td>{{$f->project?->project_name}}</td>
                             <td>{{$f->floors?->floorname}}</td>
                             <td>{{$f->flatName}}</td>
-                            <td>{{$f->floors?->total_square_ft}}</td>
-                            <td>{{$f->floors?->total_cost}}</td>
-                            <td>{{$f->floors?->total_budget}}</td>
+                            <td>{{$f->total_square_ft}}</td>
+                            <td>{{$f->total_cost}}</td>
+                            <td>{{$f->sale_price}}</td>
                             <td class="white-space-nowrap">
                                 <a href="{{route('floor.edit',encryptor('encrypt',$f->id))}}">
                                     <i class="fa fa-edit"></i>

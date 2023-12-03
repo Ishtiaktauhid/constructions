@@ -5,9 +5,10 @@ namespace App\Http\Controllers\Backend;
 use App\Http\Controllers\Controller;
 use App\Models\Backend\Flat;
 use App\Models\Backend\project;
+use App\Models\Backend\client;
 use App\Models\Backend\Floor;
-
 use Illuminate\Http\Request;
+use Exception;
 
 class FlatController extends Controller
 {
@@ -36,15 +37,15 @@ class FlatController extends Controller
     public function store(Request $request)
     {
         try{
-            $floor=new Floor();
-            $floor->project_id=$request->project_id;
-            $floor->floor_id=$request->floor_id;
-            $floor->flatName=$request->flatName;
-            $floor->total_square_ft=$request->total_square_ft;
-            $floor->total_cost=$request->total_cost;
-            $floor->sale_price=$request->sale_price;
-            $floor->client_id=currentUserId();
-            $floor->save();
+            $flat=new Flat();
+            $flat->project_id=$request->project_id;
+            $flat->floor_id=$request->floor_id;
+            $flat->flatName=$request->flatName;
+            $flat->total_square_ft=$request->total_square_ft;
+            $flat->total_cost=$request->total_cost;
+            $flat->sale_price=$request->sale_price;
+            $flat->client_id=$request->client_id;
+            $flat->save();
             $this->notice::success('Flat data saved');
             return redirect()->route('flat.index');
            }
@@ -81,14 +82,14 @@ class FlatController extends Controller
     {
         try{
             $flat=Flat::findOrFail(encryptor('decrypt', $id));
-            $floor->project_id=$request->project_id;
-            $floor->floor_id=$request->floor_id;
-            $floor->flatName=$request->flatName;
-            $floor->total_square_ft=$request->total_square_ft;
-            $floor->total_cost=$request->total_cost;
-            $floor->sale_price=$request->sale_price;
-            $floor->client_id=currentUserId();
-            $floor->save();
+            $flat->project_id=$request->project_id;
+            $flat->floor_id=$request->floor_id;
+            $flat->flatName=$request->flatName;
+            $flat->total_square_ft=$request->total_square_ft;
+            $flat->total_cost=$request->total_cost;
+            $flat->sale_price=$request->sale_price;
+            $flat->client_id=$request->client_id;
+            $flat->save();
             $this->notice::success('Flat data saved');
             return redirect()->route('flat.index');
            }

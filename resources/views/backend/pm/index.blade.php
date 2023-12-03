@@ -1,5 +1,5 @@
 @extends('backend.layout.app')
-@section('title',trans('Project Material List'))
+@section('title',trans('Floor Material List'))
 @section('page',trans('List'))
 @section('content')
 <div class="row">

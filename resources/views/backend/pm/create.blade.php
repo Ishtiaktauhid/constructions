@@ -1,6 +1,6 @@
 @extends('backend.layout.app')
 
-@section('title',trans('Project Material'))
+@section('title',trans('Floor Material'))
 @section('page',trans('Create'))
 
 @section('content')
@@ -53,7 +53,7 @@
                                     @endif
                                 </div>
                             </div>
-                          <div class="col-md-6 col-12">
+                          {{-- <div class="col-md-6 col-12">
                                 <div class="form-group">
                                     <label for="issued_by">Issued_By <i class="text-danger">*</i></label>
                                     <input type="text" id="issued_by" class="form-control" value="{{ old('issued_by')}}" name="issued_by">
@@ -89,7 +89,7 @@
                                     @endif
                                 </div>
                             </div>
-                            
+                             --}}
                              
                             
                         </div>

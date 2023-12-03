@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('project_material_plans', function (Blueprint $table) {
+        Schema::create('floor_material_plans', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('project_id')->index();
             $table->foreign('project_id')->references('id')->on('projects')->onDelete('cascade');
@@ -27,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('project_material_plans');
+        Schema::dropIfExists('floor_material_plans');
     }
 };

@@ -3,12 +3,12 @@
 namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
-use App\Models\Backend\ProjectMaterialIssue as PmIssue ;
+use App\Models\Backend\FloorMaterialIssue as PmIssue ;
 use App\Models\Backend\Project;
 use App\Models\Backend\Material;
 use Illuminate\Http\Request;
 
-class ProjectMaterialIssueController extends Controller
+class FloorMaterialIssueController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -57,7 +57,7 @@ class ProjectMaterialIssueController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(ProjectMaterialIssue $projectMaterialIssue)
+    public function show(FloorMaterialIssue $floorMaterialIssue)
     {
         //
     }
@@ -76,7 +76,7 @@ class ProjectMaterialIssueController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, ProjectMaterialIssue $projectMaterialIssue)
+    public function update(Request $request, FloorMaterialIssue $floorMaterialIssue)
     {
         try{
             $pmissue=PmIssue::findOrFail(encryptor('decrypt', $id));
