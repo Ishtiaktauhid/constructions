@@ -5,7 +5,7 @@ namespace App\Models\Backend;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Project_material extends Model
+class Floor_material extends Model
 {
     use HasFactory;
 

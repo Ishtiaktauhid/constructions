@@ -13,7 +13,7 @@ use App\Http\Controllers\Backend\SupplierController as supplier;
 use App\Http\Controllers\Backend\EmployeeController as employee;
 use App\Http\Controllers\Backend\MaterialController as material;
 use App\Http\Controllers\Backend\AssetController as asset;
-use App\Http\Controllers\Backend\ProjectMaterialController as pm;
+use App\Http\Controllers\Backend\FloorMaterialController as pm;
 use App\Http\Controllers\Backend\FloorController as floor;
 use App\Http\Controllers\Backend\FlatController as flat;
 use App\Http\Controllers\Backend\FloorMaterialIssueController as pmissue;

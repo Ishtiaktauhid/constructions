@@ -12,7 +12,7 @@ class Flat extends Model
     public function project(){
         return $this->belongsTo(Project::class);
     }
-    public function floors(){
+    public function floor(){
         return $this->belongsTo(Floor::class);
     }
 }

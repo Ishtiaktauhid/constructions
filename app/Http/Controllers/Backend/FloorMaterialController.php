@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
-use App\Models\Backend\Project_material;
+use App\Models\Backend\Floor_material;
 use App\Http\Requests\Backend\project\AddPMRequest; 
 use App\Http\Requests\Backend\project\UpdatePMRequest; 
 use App\Models\Backend\Project;
@@ -11,14 +11,14 @@ use App\Models\Backend\Material;
 use Illuminate\Http\Request;
 use Exception;
 
-class ProjectMaterialController extends Controller
+class FloorMaterialController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-       $pmaterial=Project_material::all();
+       $pmaterial=Floor_material::all();
        return view('backend.pm.index',compact('pmaterial'));
     }
 
@@ -38,7 +38,7 @@ class ProjectMaterialController extends Controller
     public function store(AddPMRequest $request)
     {
        try{
-        $pmaterial=new Project_material();
+        $pmaterial=new Floor_material();
         $pmaterial->project_id=$request->project_id;
         $pmaterial->material_id=$request->material_id;
         $pmaterial->quantity=$request->quantity;
@@ -63,7 +63,7 @@ class ProjectMaterialController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Project_material $project_material)
+    public function show(Floor_material $project_material)
     {
         //
     }
@@ -75,7 +75,7 @@ class ProjectMaterialController extends Controller
     {   
         $project=Project::get();
         $material=Material::get();
-        $pmaterial=Project_material::findOrFail(encryptor('decrypt', $id));
+        $pmaterial=Floor_material::findOrFail(encryptor('decrypt', $id));
         return view('backend.pm.edit',compact('pmaterial','project','material'));
     }
 
@@ -85,7 +85,7 @@ class ProjectMaterialController extends Controller
     public function update(UpdatePMRequest $request, $id)
     {
         try{
-            $pmaterial=Project_material::findOrFail(encryptor('decrypt', $id));
+            $pmaterial=Floor_material::findOrFail(encryptor('decrypt', $id));
             $pmaterial->project_id=$request->project_id;
             $pmaterial->material_id=$request->material_id;
             $pmaterial->quantity=$request->quantity;
@@ -109,7 +109,7 @@ class ProjectMaterialController extends Controller
      */
     public function destroy($id)
     {
-        $pmaterial=Project_material::findOrFail(encryptor('decrypt',$id));
+        $pmaterial=Floor_material::findOrFail(encryptor('decrypt',$id));
         if($pmaterial->delete()){
             $this->notice::warning('Deleted Permanently!');
             return redirect()->back();

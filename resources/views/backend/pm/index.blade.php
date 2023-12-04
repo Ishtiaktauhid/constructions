@@ -17,7 +17,6 @@
                             <th scope="col">{{__('Project Name')}}</th>
                             <th scope="col">{{__('Material Name')}}</th>
                             <th scope="col">{{__('Quantity')}}</th>
-                             
                             <th class="white-space-nowrap">{{__('Action') }}</th>
                         </tr>
                     </thead>

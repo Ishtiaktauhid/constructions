@@ -29,7 +29,7 @@
                         <tr>
                             <th scope="row">{{ ++$loop->index }}</th>
                             <td>{{$f->project?->project_name}}</td>
-                            <td>{{$f->floors?->floorname}}</td>
+                            <td>{{$f->floor?->floorname}}</td>
                             <td>{{$f->flatName}}</td>
                             <td>{{$f->total_square_ft}}</td>
                             <td>{{$f->total_cost}}</td>
