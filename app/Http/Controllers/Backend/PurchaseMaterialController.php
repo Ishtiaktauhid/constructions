@@ -44,8 +44,8 @@ class PurchaseMaterialController extends Controller
     public function product_search(Request $request)
     {
         if($request->name){
-            $materials=Material::select('id','product_name as value','product_code as label')->where(function($query) use ($request) {
-                        $query->where('product_name','like', '%' . $request->name . '%')->orWhere('product_code','like', '%' . $request->name . '%');
+            $materials=Material::select('id','material_name as value','material_code as label')->where(function($query) use ($request) {
+                        $query->where('product_name','like', '%' . $request->name . '%')->orWhere('material_code','like', '%' . $request->name . '%');
                         })->get();
                       print_r(json_encode($materials));  
         }
@@ -61,7 +61,7 @@ class PurchaseMaterialController extends Controller
         if($request->item_id){
             $materials=Material::where('id',$request->item_id)->first();
             $data='<tr class="text-center">';
-            $data.='<td class="p-2">'.$materials->product_name.'<input name="product_id[]" type="hidden" value="'.$materials->id.'"></td>';
+            $data.='<td class="p-2">'.$materials->material_name.'<input name="material_id[]" type="hidden" value="'.$materials->id.'"></td>';
             
             $data.='<td class="p-2"><input onkeyup="get_cal(this)" name="qty[]" type="text" class="form-control qty" value="0"></td>';
             $data.='<td class="p-2"><input onkeyup="get_cal(this)" name="price[]" type="text" class="form-control price" value="0"></td>';

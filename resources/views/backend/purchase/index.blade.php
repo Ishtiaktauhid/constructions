@@ -74,9 +74,9 @@
                             <thead class="thead-light">
                                 <tr>
                                     <th scope="col">{{__('No.')}}</th>
-                                    <th scope="col">{{__('Purchase Date')}}</th>
+                                    <th scope="col">{{__('PurchaseMaterial Date')}}</th>
                                     <th scope="col">{{__('Supplier')}}</th>
-                                    <th scope="col">{{__('Purchase No')}}</th>
+                                    <th scope="col">{{__('PurchaseMaterial No')}}</th>
                                     <th scope="col">{{__('Status')}}</th>
                                     <th scope="col">{{__('Sub Amount')}}</th>
                                     <th scope="col">{{__('Discount')}}</th>

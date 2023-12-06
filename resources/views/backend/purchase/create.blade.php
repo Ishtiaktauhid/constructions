@@ -53,24 +53,13 @@
                                 <div class="col-md-4">
                                     <input type="date" id="datepicker" class="form-control" value="{{ old('purchase_date')}}" name="purchase_date" placeholder="dd/mm/yyyy" required>
                                 </div>
-
                                 <div class="col-md-2 mt-2">
-                                    <label for="supplierName" class="float-end"><h6>Supplier<span class="text-danger">*</span></h6></label>
+                                    <label for="reference_no" class="float-end"><h6>Reference Number<span class="text-danger">*</span></h6></label>
                                 </div>
                                 <div class="col-md-4">
-                                    <select required class="form-control form-select" name="supplierName" id="supplierName">
-                                        <option value="">Select Supplier</option>
-                                        @forelse($supplier as $d)
-                                            <option value="{{$d->id}}" {{ old('supplierName')==$d->id?"selected":""}}> {{ $d->name}}</option>
-                                        @empty
-                                            <option value="">No Supplier found</option>
-                                        @endforelse
-                                    </select>
+                                    <input type="text" id="reference_no" class="form-control" value="{{ old('reference_no')}}" name="reference_no" required>
                                 </div>
-
-                                @if($errors->has('supplierName'))
-                                <span class="text-danger"> {{ $errors->first('supplierName') }}</span>
-                                @endif   
+                                 
                             </div>
                             <div class="row m-3">
                                 <div class="col-8 offset-2">
@@ -82,9 +71,9 @@
                                     <table class="table mb-5">
                                         <thead>
                                             <tr class="bg-primary text-white text-center">
-                                                <th class="p-2">Product Name</th>
+                                                <th class="p-2">Material Name</th>
                                                 <th class="p-2">Quantity</th>
-                                                <th class="p-2">Purchase Price</th>
+                                                <th class="p-2">PurchaseMaterial Price</th>
                                                 <th class="p-2">Tax %</th>
                                                 <th class="p-2">Discount Type</th>
                                                 <th class="p-2">Discount</th>
@@ -209,7 +198,7 @@
 <!-- END: Main Page Content -->
 @endsection
 
-@push('page-scripts')
+@push('scripts')
     <!-- jQuery library -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
