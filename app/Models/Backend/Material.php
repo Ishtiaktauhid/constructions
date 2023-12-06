@@ -12,5 +12,7 @@ class Material extends Model
     public function project_material(){
         return $this->hasMany(Project_material::class);
     }
-    
+    public function material(){
+        return $this->belongsTo(Material::class);
+    }
 }

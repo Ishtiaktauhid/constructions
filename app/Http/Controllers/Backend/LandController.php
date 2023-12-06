@@ -7,7 +7,6 @@ use App\Models\Backend\Land;
 use App\Http\Requests\Backend\land\StoreLandRequest; 
 use App\Http\Requests\Backend\land\UpdateLandRequest; 
 use Illuminate\Http\Request;
-
 use Exception;
 
 class LandController extends Controller
@@ -83,9 +82,10 @@ class LandController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Land $land)
+    public function show($id)
     {
-        //
+        $land=Land::findOrFail(encryptor('decrypt',$id));
+        return view('backend.land.show',compact('land'));
     }
 
     /**

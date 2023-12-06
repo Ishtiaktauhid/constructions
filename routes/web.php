@@ -12,6 +12,7 @@ use App\Http\Controllers\Backend\ClientController as client;
 use App\Http\Controllers\Backend\SupplierController as supplier;
 use App\Http\Controllers\Backend\EmployeeController as employee;
 use App\Http\Controllers\Backend\MaterialController as material;
+use App\Http\Controllers\Backend\MaterialDamageController as damage;
 use App\Http\Controllers\Backend\AssetController as asset;
 use App\Http\Controllers\Backend\FloorMaterialController as pm;
 use App\Http\Controllers\Backend\FloorController as floor;
@@ -61,6 +62,7 @@ Route::middleware(['checkrole'])->prefix('admin')->group(function(){
     Route::resource('supplier', supplier::class);
     Route::resource('employee', employee::class);
     Route::resource('material', material::class);
+    Route::resource('damage', damage::class);
     Route::resource('asset', asset::class); 
     Route::resource('pm', pm::class);
     Route::resource('floor', floor::class);

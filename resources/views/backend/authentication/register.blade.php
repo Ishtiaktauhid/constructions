@@ -33,6 +33,11 @@
                 @endif
             </div>
             <div class="form-group">
+                <label for="image"><strong>Image</strong></label>
+                <input type="file" class="form-control" placeholder="Image" name="image" id="image">
+                
+            </div>
+            <div class="form-group">
                 <label for="password"><strong>Password</strong></label>
                 <input type="password" class="form-control"  placeholder="enter your password" name="password" id="password"> 
                 @if($errors->has('password'))

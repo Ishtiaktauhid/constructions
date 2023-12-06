@@ -24,6 +24,12 @@ class AuthenticationController extends Controller
             $user->name_en=$request->FullName;
             $user->contact_no_en=$request->contact_no_en;
             $user->email=$request->EmailAddress;
+            if($request->hasFile('image')){
+                $imageName = rand(111,999).time().'.'.
+                $request->image->extension();
+                $request->image->move(public_path('uploads/users'),$imageName);
+                $data->image=$imageName;
+            }
             $user->password=Hash::make($request->password);
             $user->role_id=1;
             if($user->save())

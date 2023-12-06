@@ -18,7 +18,7 @@
                                     <select class="form-control" name="floor_id" id="floor_id">
                                         <option value="">Select Project</option>
                                         @forelse($floor as $l)
-                                            <option value="{{$l->id}}" {{ old('floor_id')==$l->id?"selected":""}}> {{$l->floor_name}}</option>
+                                            <option value="{{$l->id}}" {{ old('floor_id')==$l->id?"selected":""}}> {{$l->floorname}}</option>
                                         @empty
                                             <option value="">No Role found</option>
                                         @endforelse
@@ -33,30 +33,30 @@
                                     <label for="flat_id">Flat Name  <i class="text-danger">*</i></label>
                                     <select class="form-control" name="flat_id" id="flat_id">
                                         <option value="">Select Floor</option>
-                                        @forelse($mdamage as $md)
-                                            <option value="{{$md->id}}" {{ old('flat_id')==$md->id?"selected":""}}> {{$md->flatName}}</option>
+                                        @forelse($flat as $ft)
+                                            <option value="{{$ft->id}}" {{ old('flat_id')==$ft->id?"selected":""}}> {{$ft->flatName}}</option>
                                         @empty
                                             <option value="">No Role found</option>
                                         @endforelse
                                     </select>
-                                    @if($errors->has('floor_id'))
-                                        <span class="text-danger"> {{ $errors->first('floor_id') }}</span>
+                                    @if($errors->has('flat_id'))
+                                        <span class="text-danger"> {{ $errors->first('flat_id') }}</span>
                                     @endif
                                 </div>
                             </div>
                             <div class="col-md-6 col-12">
                                 <div class="form-group">
-                                    <label for="floor_id">Material Name  <i class="text-danger">*</i></label>
-                                    <select class="form-control" name="floor_id" id="floor_id">
+                                    <label for="material_id">Material Name  <i class="text-danger">*</i></label>
+                                    <select class="form-control" name="material_id" id="material_id">
                                         <option value="">Select Floor</option>
-                                        @forelse($floor as $f)
-                                            <option value="{{$f->id}}" {{ old('floor_id')==$f->id?"selected":""}}> {{$f->floorname}}</option>
+                                        @forelse($material as $m)
+                                            <option value="{{$m->id}}" {{ old('material_id')==$m->id?"selected":""}}> {{$m->material_name}}</option>
                                         @empty
                                             <option value="">No Role found</option>
                                         @endforelse
                                     </select>
-                                    @if($errors->has('floor_id'))
-                                        <span class="text-danger"> {{ $errors->first('floor_id') }}</span>
+                                    @if($errors->has('material_id'))
+                                        <span class="text-danger"> {{ $errors->first('material_id') }}</span>
                                     @endif
                                 </div>
                             </div>
@@ -64,10 +64,10 @@
                            
                           <div class="col-md-6 col-12">
                                 <div class="form-group">
-                                    <label for="flatName">Flat Name<i class="text-danger">*</i></label>
-                                    <input type="text" id="flatName" class="form-control" value="{{ old('flatName')}}" name="flatName">
-                                    @if($errors->has('flatName'))
-                                        <span class="text-danger"> {{ $errors->first('flatName') }}</span>
+                                    <label for="quantity">Quantity<i class="text-danger">*</i></label>
+                                    <input type="text" id="quantity" class="form-control" value="{{ old('quantity')}}" name="quantity">
+                                    @if($errors->has('quantity'))
+                                        <span class="text-danger"> {{ $errors->first('quantity') }}</span>
                                     @endif
                                 </div>
                             </div>

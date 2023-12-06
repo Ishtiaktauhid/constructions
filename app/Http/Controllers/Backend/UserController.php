@@ -3,8 +3,8 @@
 namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
-use App\Models\User;
-use App\Models\Role;
+use App\Models\Backend\User;
+use App\Models\Backend\Role;
 use Illuminate\Http\Request;
 use App\Http\Requests\Backend\User\AddNewRequest; //for required
 use App\Http\Requests\Backend\User\UpdateRequest;
@@ -70,9 +70,11 @@ class UserController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show($id)
     {
-        
+        $role=Role::get();
+        $user=User::find(encryptor('decrypt',$id));
+        return view('backend.user.show',compact('user','role'));
     }
 
     /**
