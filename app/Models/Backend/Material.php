@@ -15,4 +15,8 @@ class Material extends Model
     public function material(){
         return $this->belongsTo(Material::class);
     }
+
+    public function materialdamage(){
+        return $this->hasMany(MaterialDamage::class);
+    }
 }

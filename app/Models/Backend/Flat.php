@@ -15,4 +15,8 @@ class Flat extends Model
     public function floor(){
         return $this->belongsTo(Floor::class);
     }
+
+    public function materialdamage(){
+        return $this->hasMany(MaterialDamage::class);
+    }
 }

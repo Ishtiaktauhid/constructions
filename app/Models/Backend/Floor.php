@@ -16,4 +16,8 @@ class Floor extends Model
     public function flats(){
         return $this->hasMany(Flat::class);
     }
+
+    public function materialdamage(){
+        return $this->hasMany(MaterialDamage::class);
+    }
 }

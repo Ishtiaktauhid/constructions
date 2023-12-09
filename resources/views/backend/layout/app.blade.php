@@ -119,6 +119,7 @@
                         </a>
                         <ul aria-expanded="false">
                             <li><a href="{{route('material.index')}}">Materials</a></li>
+                            <li><a href="{{route('damage.index')}}">Material Damage</a></li>
                             <li><a href="{{route('asset.index')}}">Assets</a></li>
                             
                         </ul>

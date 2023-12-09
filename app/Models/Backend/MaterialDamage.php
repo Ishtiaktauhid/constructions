@@ -9,4 +9,15 @@ class MaterialDamage extends Model
 {
     use HasFactory;
     
+    public function floor(){
+        return $this->belongsTo(Floor::class);
+    }
+
+    public function flat(){
+        return $this->belongsTo(Flat::class);
+    }
+
+    public function material(){
+        return $this->belongsTo(Material::class);
+    }
 }

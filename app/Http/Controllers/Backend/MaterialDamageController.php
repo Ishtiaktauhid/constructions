@@ -46,7 +46,7 @@ class MaterialDamageController extends Controller
             $mdamage->total_amount=$request->total_amount;
             $mdamage->save();
             $this->notice::success('Damage data saved');
-            return redirect()->route('mdamage.index');
+            return redirect()->route('damage.index');
           }
           catch(Exception $e){
             $this->notice::error('Please try again');
@@ -66,22 +66,22 @@ class MaterialDamageController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(MaterialDamage $materialDamage)
+    public function edit($id)
     {
         $floor=Floor::get();
         $flat=Flat::get();
         $material=Material::get();
-        $mdamage=MaterialDamage::find($id);
+        $mdamage=MaterialDamage::find(encryptor('decrypt',$id));
         return view('backend.damage.edit',compact('floor','flat','material','mdamage'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, MaterialDamage $materialDamage)
+    public function update(Request $request, $id)
     {
         try{
-            $mdamage=MaterialDamage::find($id);
+            $mdamage=MaterialDamage::find(encryptor('decrypt',$id));
             $mdamage->floor_id=$request->floor_id;
             $mdamage->flat_id=$request->flat_id;
             $mdamage->material_id=$request->material_id;
@@ -90,7 +90,7 @@ class MaterialDamageController extends Controller
             $mdamage->total_amount=$request->total_amount;
             $mdamage->save();
             $this->notice::success('Damage data saved');
-            return redirect()->route('mdamage.index');
+            return redirect()->route('damage.index');
           }
           catch(Exception $e){
             $this->notice::error('Please try again');
