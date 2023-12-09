@@ -67,13 +67,13 @@ class FloorController extends Controller
     {
         $project=Project::get();
         $floor=Floor::findOrFail(encryptor('decrypt', $id));
-        return view('backend.pm.edit',compact('floor','project'));
+        return view('backend.floor.edit',compact('floor','project'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Floor $floor)
+    public function update(Request $request,$id)
     {
         try{
             $floor=Floor::findOrFail(encryptor('decrypt', $id));
@@ -97,7 +97,7 @@ class FloorController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Floor $floor)
+    public function destroy($id)
     {
         $floor=Floor::findOrFail(encryptor('decrypt',$id));
         if($floor->delete()){

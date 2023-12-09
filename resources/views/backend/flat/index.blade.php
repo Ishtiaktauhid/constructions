@@ -35,13 +35,13 @@
                             <td>{{$f->total_cost}}</td>
                             <td>{{$f->sale_price}}</td>
                             <td class="white-space-nowrap">
-                                <a href="{{route('floor.edit',encryptor('encrypt',$f->id))}}">
+                                <a href="{{route('flat.edit',encryptor('encrypt',$f->id))}}">
                                     <i class="fa fa-edit"></i>
                                 </a>
                                 <a href="javascript:void()" onclick="$('#form{{$f->id}}').submit()">
                                     <i class="fa fa-trash"></i>
                                 </a>
-                                <form id="form{{$f->id}}" action="{{route('floor.destroy',encryptor('encrypt',$f->id))}}" method="post">
+                                <form id="form{{$f->id}}" action="{{route('flat.destroy',encryptor('encrypt',$f->id))}}" method="post">
                                     @csrf
                                     @method('delete')
                                 </form>

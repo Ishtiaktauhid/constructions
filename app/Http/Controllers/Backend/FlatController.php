@@ -51,7 +51,7 @@ class FlatController extends Controller
            }
            catch(Exception $e){
             $this->notice::error('Please try again');
-             dd($e);
+             //dd($e);
             return redirect()->back()->withInput();
            }
     }
@@ -72,7 +72,7 @@ class FlatController extends Controller
         $project=Project::get();
         $floor=Floor::get();
         $flat=Flat::findOrFail(encryptor('decrypt', $id));
-        return view('backend.flat.create', compact('flat','project','floor'));
+        return view('backend.flat.edit', compact('flat','project','floor'));
     }
 
     /**
@@ -90,12 +90,12 @@ class FlatController extends Controller
             $flat->sale_price=$request->sale_price;
             $flat->client_id=$request->client_id;
             $flat->save();
-            $this->notice::success('Flat data saved');
+            $this->notice::success('Flat data updated');
             return redirect()->route('flat.index');
            }
            catch(Exception $e){
             $this->notice::error('Please try again');
-             dd($e);
+             //dd($e);
             return redirect()->back()->withInput();
            }
     }

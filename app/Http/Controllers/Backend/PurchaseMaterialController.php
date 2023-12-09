@@ -44,10 +44,10 @@ class PurchaseMaterialController extends Controller
     public function product_search(Request $request)
     {
         if($request->name){
-            $materials=Material::select('id','material_name as value','material_code as label')->where(function($query) use ($request) {
-                        $query->where('product_name','like', '%' . $request->name . '%')->orWhere('material_code','like', '%' . $request->name . '%');
+            $product=Material::select('id','bname as value','product_code as label')->where(function($query) use ($request) {
+                        $query->where('bname','like', '%' . $request->name . '%')->orWhere('product_code','like', '%' . $request->name . '%');
                         })->get();
-                      print_r(json_encode($materials));  
+                      print_r(json_encode($product));
         }
         
     }
@@ -59,10 +59,10 @@ class PurchaseMaterialController extends Controller
     public function product_search_data(Request $request)
     {
         if($request->item_id){
-            $materials=Material::where('id',$request->item_id)->first();
+            $product=Material::where('id',$request->item_id)->first();
             $data='<tr class="text-center">';
-            $data.='<td class="p-2">'.$materials->material_name.'<input name="material_id[]" type="hidden" value="'.$materials->id.'"></td>';
-            
+            $data.='<td class="p-2">'.$product->bname.'<input name="material_id[]" type="hidden" value="'.$product->id.'"></td>';
+
             $data.='<td class="p-2"><input onkeyup="get_cal(this)" name="qty[]" type="text" class="form-control qty" value="0"></td>';
             $data.='<td class="p-2"><input onkeyup="get_cal(this)" name="price[]" type="text" class="form-control price" value="0"></td>';
             $data.='<td class="p-2"><input onkeyup="get_cal(this)" name="tax[]" type="text" class="form-control tax" value=""></td>';
@@ -77,11 +77,12 @@ class PurchaseMaterialController extends Controller
             $data.='<td class="p-2"><input name="subtotal[]" readonly type="text" class="form-control subtotal" value="0"></td>';
             $data.='<td class="p-2 text-danger"><i style="font-size:1.7rem" onclick="removerow(this)" class="fa fa-dash-circle-fill"></i></td>';
             $data.='</tr>';
-            
-            print_r(json_encode($data));  
+
+            print_r(json_encode($data));
         }
-        
+
     }
+
 
     /**
      * Store a newly created resource in storage.
