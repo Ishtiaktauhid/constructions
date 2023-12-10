@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Backend\AuthenticationController as auth;
+use App\http\Controllers\HomeController;
 use App\Http\Controllers\Backend\UserController as user;
 use App\Http\Controllers\Backend\RoleController as role;
 use App\Http\Controllers\Backend\DashboardController as dashboard;
@@ -73,7 +74,16 @@ Route::middleware(['checkrole'])->prefix('admin')->group(function(){
       Route::resource('purchase', purchase::class);
 });
     
-Route::get('/', function () {
-    return view('welcome');
-});
+
+
+//frontend
+Route::get('/', [HomeController::class, 'index']);
+Route::get('properties',[HomeController::class,'properties'])->name('properties');
+Route::get('service',[HomeController::class,'service'])->name('service');
+Route::get('about',[HomeController::class,'about'])->name('about');
+Route::get('contact',[HomeController::class,'contact'])->name('contact');
+
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
