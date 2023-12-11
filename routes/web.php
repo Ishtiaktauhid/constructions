@@ -23,6 +23,8 @@ use App\Http\Controllers\Backend\PaymentController as payment;
 use App\Http\Controllers\Backend\PurchaseMaterialController as purchase;
  
 
+use App\Http\Controllers\frontenduser\AuthController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -82,6 +84,12 @@ Route::get('properties',[HomeController::class,'properties'])->name('properties'
 Route::get('service',[HomeController::class,'service'])->name('service');
 Route::get('about',[HomeController::class,'about'])->name('about');
 Route::get('contact',[HomeController::class,'contact'])->name('contact');
+
+
+
+
+//frontenduser
+Route::get('frontenduser/login', [AuthController::class,'signInForm'])->name('frontenduser.auth.login');
 
 // Route::get('/', function () {
 //     return view('welcome');

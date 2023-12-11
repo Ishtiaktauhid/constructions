@@ -36,8 +36,7 @@
         </div>
         <div class="site-mobile-menu-body"></div>
       </div>
-  
-      <nav class="site-nav">
+     <nav class="site-nav">
         <div class="container">
           <div class="menu-bg-wrap">
             <div class="site-navigation">
@@ -55,10 +54,14 @@
 
                 <li class="{{ request()->is('contact') ? 'active' : '' }}"><a href="{{ route('contact') }}">Contact Us</a></li>
                 
-                
-               
-               
-              </ul>
+                {{-- @if(request()->session()->get('userId')) --}}
+                <li><a href="">Logout</a></li>
+                <li><a href="">Dashboard</a></li>
+                {{-- @else --}}
+           
+                <li><a href="{{route('frontenduser.auth.login')}}">Login</a></li>
+                <li><a href="">Register</a></li>
+                </ul>
   
               <a
                 href="#"
@@ -71,7 +74,7 @@
             </div>
           </div>
         </div>
-      </nav>
+       </nav>
 
         @yield('content')
 
