@@ -19,7 +19,7 @@
   <!-- Material Icons -->
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
   <!-- CSS Files -->
-  <link id="pagestyle" href="../assetss/css/material-dashboard.css?v=3.1.0" rel="stylesheet" />
+  <link id="pagestyle" href="{{asset('public/assetss/css/material-dashboard.css?v=3.1.0')}}" rel="stylesheet" />
   <!-- Nepcha Analytics (nepcha.com) -->
   <!-- Nepcha is a easy-to-use web analytics. No cookies and fully compliant with GDPR, CCPA and PECR. -->
   <script defer data-site="YOUR_DOMAIN_HERE" src="https://api.nepcha.com/js/nepcha-analytics.js"></script>
@@ -28,11 +28,11 @@
     @yield('content')
 </body>
 
-<script src="../assetss/js/core/popper.min.js"></script>
-<script src="../assetss/js/core/bootstrap.min.js"></script>
-<script src="../assetss/js/plugins/perfect-scrollbar.min.js"></script>
-<script src="../assetss/js/plugins/smooth-scrollbar.min.js"></script>
-<script src="../assetss/js/plugins/chartjs.min.js"></script>
+<script src="{{asset('public/assetss/js/core/popper.min.js')}}"></script>
+<script src="{{asset('public/assetss/js/core/bootstrap.min.js')}}"></script>
+<script src="{{asset('public/assetss/js/plugins/perfect-scrollbar.min.js')}}"></script>
+<script src="{{asset('public/assetss/js/plugins/smooth-scrollbar.min.js')}}"></script>
+<script src="{{asset('public/assetss/js/plugins/chartjs.min.js')}}"></script>
 <script>
   var ctx = document.getElementById("chart-bars").getContext("2d");
 

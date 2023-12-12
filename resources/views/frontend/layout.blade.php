@@ -54,13 +54,13 @@
 
                 <li class="{{ request()->is('contact') ? 'active' : '' }}"><a href="{{ route('contact') }}">Contact Us</a></li>
                 
-                {{-- @if(request()->session()->get('userId')) --}}
-                <li><a href="">Logout</a></li>
-                <li><a href="">Dashboard</a></li>
-                {{-- @else --}}
-           
+                @if(request()->session()->get('userId'))
+                <li><a href="{{route('frontenduser.auth.logout')}}">Logout</a></li>
+                <li><a href="{{route('user.dashboard')}}">Dashboard</a></li>
+                @else
                 <li><a href="{{route('frontenduser.auth.login')}}">Login</a></li>
-                <li><a href="">Register</a></li>
+                <li><a href="{{route('frontenduser.auth.register')}}">Register</a></li>
+                @endif
                 </ul>
   
               <a

@@ -1,4 +1,4 @@
-@extends('layout.app')
+@extends('frontenduser.layout.app')
 @section('content')
      
   <main class="main-content  mt-0">
@@ -31,15 +31,30 @@
                 </div>
               </div>
               <div class="card-body">
-                <form role="form" class="text-start" action="{{route('login.check')}}" method="post">
+                @if(session()->has('error'))
+                        <div class="alert alert-success">
+                            {{ session()->get('error') }}
+                        </div>
+                    @endif  
+                <form role="form" class="text-start" action="{{route('frontenduser.auth.login.check')}}" method="post">
                     @csrf
                   <div class="input-group input-group-outline my-3">
                     <label class="form-label" for="username">Email/Contact</label>
                     <input type="text" class="form-control" name="username" value="{{old('username')}}">
+                        @if($errors->has('username'))
+                          <small class="d-block text-danger">
+                              {{$errors->first('username')}}
+                        </small>
+                      @endif
                   </div>
                   <div class="input-group input-group-outline mb-3">
                     <label class="form-label" for="password">Password</label>
-                    <input type="password" class="form-control" name="password">
+                    <input type="password" class="form-control" name="password" value="{{old('password')}}">
+                    @if($errors->has('password'))
+                        <small class="d-block text-danger">
+                            {{$errors->first('password')}}
+                      </small>
+                   @endif
                   </div>
                   <div class="form-check form-switch d-flex align-items-center mb-3">
                     <input class="form-check-input" type="checkbox" id="rememberMe" checked>
@@ -50,7 +65,7 @@
                   </div>
                   <p class="mt-4 text-sm text-center">
                     Don't have an account?
-                    <a href="{{route('register')}}" class="text-primary text-gradient font-weight-bold">Sign up</a>
+                    <a href="{{route('frontenduser.auth.register')}}" class="text-primary text-gradient font-weight-bold">Sign up</a>
                   </p>
                 </form>
               </div>

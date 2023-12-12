@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Backend;
 
 
 use App\Http\Controllers\Controller;
-use App\Models\Asset;
+use App\Models\Backend\Asset;
 use Illuminate\Http\Request;
 use Exception;
 

@@ -22,8 +22,9 @@ use App\Http\Controllers\Backend\FloorMaterialIssueController as pmissue;
 use App\Http\Controllers\Backend\PaymentController as payment;
 use App\Http\Controllers\Backend\PurchaseMaterialController as purchase;
  
-
+//frontend
 use App\Http\Controllers\frontenduser\AuthController;
+use App\Http\Controllers\frontenduser\DashboardController;
 
 /*
 |--------------------------------------------------------------------------
@@ -54,6 +55,8 @@ Route::middleware(['checkauth'])->prefix('admin')->group(function(){
     Route::get('/product_search', [purchase::class,'product_search'])->name('pur.product_search');
         Route::get('/product_search_data', [purchase::class,'product_search_data'])->name('pur.product_search_data');
 });
+
+
 Route::middleware(['checkrole'])->prefix('admin')->group(function(){
     Route::resource('user', user::class);
     Route::resource('role', role::class);
@@ -88,9 +91,18 @@ Route::get('contact',[HomeController::class,'contact'])->name('contact');
 
 
 
-//frontenduser
+// frontend user
+Route::get('frontenduser/register', [AuthController::class, 'signUpForm'])->name('frontenduser.auth.register');
+Route::post('frontenduser/register', [AuthController::class, 'signUpStore'])->name('frontenduser.auth.register.store');
 Route::get('frontenduser/login', [AuthController::class,'signInForm'])->name('frontenduser.auth.login');
+Route::post('frontenduser/login', [AuthController::class,'signInCheck'])->name('frontenduser.auth.login.check');
+Route::get('frontenduser/logout', [AuthController::class,'signOut'])->name('frontenduser.auth.logout');
 
+
+Route::middleware(['checkuser'])->prefix('user')->group(function(){
+    Route::get('dashboard', [DashboardController::class,'index'])->name('user.dashboard');
+     
+});
 // Route::get('/', function () {
 //     return view('welcome');
 // });

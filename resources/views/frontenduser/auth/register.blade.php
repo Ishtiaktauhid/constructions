@@ -1,4 +1,4 @@
-@extends('layout.app')
+@extends('frontenduser.layout.app')
 @section('content')
      
 <main class="main-content  mt-0">
@@ -31,27 +31,47 @@
               </div>
             </div>
             <div class="card-body">
-              <form role="form" class="text-start" action="{{route('register.store')}}" method="post">
+              <form role="form" class="text-start" action="{{ route('frontenduser.auth.register.store') }}" method="post">
                 @csrf
                 <div class="input-group input-group-outline mb-3">
-                  <label class="form-label" for="FullName">Name</label>
-                  <input type="text" class="form-control" name="FullName" value="{{old('FullName')}}">
+                  <label class="form-label" for="name">Name</label>
+                  <input type="text" class="form-control" id="name" name="name" value="{{old('name')}}">
+                    @if($errors->has('name'))
+                      <small class="d-block text-danger">
+                        {{$errors->first('name')}}
+                      </small>
+                    @endif
                 </div>
                 <div class="input-group input-group-outline mb-3">
-                  <label class="form-label" for="contact_no_en">Contact</label>
-                  <input type="text" class="form-control" name="contact_no_en" value="{{old('contact_no_en')}}">
+                  <label class="form-label" for="contact">Contact</label>
+                  <input type="text" class="form-control" id="contact" name="contact" value="{{old('contact')}}">
+                      @if($errors->has('contact'))
+                          <small class="d-block text-danger">
+                            {{$errors->first('contact')}}
+                          </small>
+                      @endif
                 </div>
                 <div class="input-group input-group-outline mb-3">
                   <label class="form-label" for="email">Email</label>
                   <input type="email" class="form-control" name="email" value="{{old('email')}}">
+                      @if($errors->has('email'))
+                          <small class="d-block text-danger">
+                            {{$errors->first('email')}}
+                          </small>
+                      @endif
                 </div>
                 <div class="input-group input-group-outline mb-3">
                   <label class="form-label" for="password">Password</label>
-                  <input type="password" class="form-control" name="password" value="{{old('password')}}">
+                  <input type="password" class="form-control" id="password" name="password" value="{{old('password')}}">
+                       @if($errors->has('password'))
+                            <small class="d-block text-danger">
+                               {{$errors->first('password')}}
+                          </small>
+                       @endif
                 </div>
                 <div class="input-group input-group-outline mb-3">
                   <label class="form-label" for="password_confirmation">Confirm Password</label>
-                  <input type="password" class="form-control" name="password_confirmation">
+                  <input type="password" class="form-control" id="password_confirmation" name="password_confirmation">
                 </div>
                 <div class="form-check form-check-info text-start ps-0">
                   <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" checked>
@@ -67,7 +87,7 @@
             <div class="card-footer text-center pt-0 px-lg-2 px-1">
               <p class="mb-2 text-sm mx-auto">
                 Already have an account?
-                <a href="{{route('login')}}" class="text-primary text-gradient font-weight-bold">Sign in</a>
+                <a href="{{route('frontenduser.auth.login')}}" class="text-primary text-gradient font-weight-bold">Sign in</a>
               </p>
             </div>
           </div>
