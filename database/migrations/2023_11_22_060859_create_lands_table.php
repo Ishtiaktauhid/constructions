@@ -21,7 +21,7 @@ return new class extends Migration
             $table->string('rs_no_en')->unique();
             $table->string('rs_no_bn')->unique()->nullable();
             $table->string('bs_no_en')->unique();
-            $table->string('bs_no_bn')->unique()->nullalbe();
+            $table->string('bs_no_bn')->unique()->nullable();
             $table->string('rs_image')->nullable();
             $table->string('bs_image')->nullable();
             $table->string('registration_no_en')->unique();
