@@ -107,8 +107,9 @@
                         <ul aria-expanded="false">
                             
                             <li><a href="{{route('project.index')}}">Project</a></li>
-                            <li><a href="{{route('floor.index')}}">Floor</a></li>
+                            <li><a href="{{route('floor.index')}}">Floor</a> </li>
                             <li><a href="{{route('pm.index')}}">Floor Material</a></li>
+                            <li><a href="{{route('flat.index')}}">Flat</a></li>
                         </ul>
                     </li>
                     <!-- <li class="nav-label">Apps</li> -->

@@ -51,7 +51,7 @@ class FlatController extends Controller
            }
            catch(Exception $e){
             $this->notice::error('Please try again');
-             //dd($e);
+             dd($e);
             return redirect()->back()->withInput();
            }
     }
