@@ -14,8 +14,7 @@
                     <thead>
                         <tr>
                             <th scope="col">{{__('#SL')}}</th>
-                            <th scope="col">{{__('Floor Name')}}</th>
-                            <th scope="col">{{__('Flat Name')}}</th>
+                           
                             <th scope="col">{{__('Material Name')}}</th>
                             <th scope="col">{{__('Quantity')}}</th>
                             <th scope="col">{{__('Unit Price')}}</th>
@@ -28,8 +27,7 @@
                         @forelse($mdamage as $md)
                         <tr>
                             <th scope="row">{{ ++$loop->index }}</th>
-                            <td>{{$md->floor?->floorname}}</td>
-                            <td>{{$md->flat?->flatName}}</td>
+                            
                             <td>{{$md->material?->name}}</td>
                             <td>{{$md->quantity}}</td>
                             <td>{{$md->unit_price}}</td>
