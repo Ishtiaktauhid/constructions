@@ -1,6 +1,6 @@
 @extends('backend.layout.app')
 
-@section('title',trans('project'))
+@section('title',trans('project Update'))
 @section('page',trans('Update'))
 
 @section('content')
