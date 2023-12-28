@@ -82,7 +82,7 @@ Route::middleware(['checkrole'])->prefix('admin')->group(function(){
 
 
 //frontend
-Route::get('/', [HomeController::class, 'index']);
+Route::get('/', [HomeController::class, 'index'])-> name('home');
 Route::get('properties',[HomeController::class,'properties'])->name('properties');
 Route::get('service',[HomeController::class,'service'])->name('service');
 Route::get('about',[HomeController::class,'about'])->name('about');
