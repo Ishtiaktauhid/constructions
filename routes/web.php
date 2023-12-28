@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Backend\AuthenticationController as auth;
-use App\http\Controllers\HomeController;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Backend\UserController as user;
 use App\Http\Controllers\Backend\RoleController as role;
 use App\Http\Controllers\Backend\DashboardController as dashboard;
