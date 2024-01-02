@@ -24,9 +24,19 @@ class ProjectapiController extends Controller
     public function allproject()
     {
         $project=Project::get();
-
-        return response($project, 200);
+        $data = array();
+        if($project){
+            foreach($project as $p){
+                $data[]=array(
+                    'id' => $p->id,
+                    'project_name'=>$p->project_name,
+                    'land'=>$p->land?->name_en,
+                    'start_time'=>$p->start_time,
+                    'end_time'=>$p->end_time,
+                    'project_value'=>$p->project_value,
+                );
+              }
+        }
+      return response($data, 200);
     }
-
-    
 }
