@@ -20,4 +20,5 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 Route::get('projectapi/{cat}', [ProjectapiController::class,'project_details']);
+Route::get('allproject', [ProjectapiController::class,'allproject']);
 Route::get('floorapi/{cat}', [floorapiController::class,'index']);
