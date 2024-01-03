@@ -17,9 +17,22 @@ class ProjectapiController extends Controller
      */
     public function project_details($id)
     {
-        $project=Project::where('id',$id)->get();
-        
-        return response($project, 200);
+        $p=Project::where('id',$id)->first();
+        $data = array();
+        if($p){
+            $data=array(
+                'id' => $p->id,
+                'project_name'=>$p->project_name,
+                'description'=>$p->description,
+                'land'=>$p->land?->land_area,
+                'start_time'=>date('d M, Y',strtotime($p->start_time)),
+                'end_time'=>date('d M, Y',strtotime($p->end_time)),
+                'other_project_details'=>$p->other_project_details,
+                'image'=>$p->image,
+                'price'=>$p->flats->min('sale_price')==$p->flats->max('sale_price')? $p->flats->min('sale_price') : $p->flats->min('sale_price') ." - ". $p->flats->max('sale_price'),
+            );
+        }
+        return response($data, 200);
     }
     public function allproject()
     {
@@ -27,13 +40,17 @@ class ProjectapiController extends Controller
         $data = array();
         if($project){
             foreach($project as $p){
+
                 $data[]=array(
                     'id' => $p->id,
                     'project_name'=>$p->project_name,
-                    'land'=>$p->land?->name_en,
+                    'description'=>$p->description,
+                    'land'=>$p->land?->land_area,
                     'start_time'=>$p->start_time,
                     'end_time'=>$p->end_time,
-                    'project_value'=>$p->project_value,
+                    'other_project_details'=>$p->other_project_details,
+                    'image'=>$p->image,
+                    'price'=>$p->flats->min('sale_price')==$p->flats->max('sale_price')? $p->flats->min('sale_price') : $p->flats->min('sale_price') ." - ". $p->flats->max('sale_price'),
                 );
               }
         }
