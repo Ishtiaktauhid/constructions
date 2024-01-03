@@ -56,4 +56,15 @@ class ProjectapiController extends Controller
         }
       return response($data, 200);
     }
+
+    public function ordertrack_save(Request $r){
+        $ot=new Ordertrack;
+        $ot->comment=$r->comment;
+        $ot->status=$r->status;
+        $ot->shipment_id=$r->shipment_id;
+        $ot->user_id=encryptor('decrypt',$r->user_id);
+        $ot->save();
+        return response($ot, 200);
+    }
+
 }
